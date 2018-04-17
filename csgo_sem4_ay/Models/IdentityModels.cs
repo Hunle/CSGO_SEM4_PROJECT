@@ -18,7 +18,7 @@ namespace csgo_sem4_ay.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser> h
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
