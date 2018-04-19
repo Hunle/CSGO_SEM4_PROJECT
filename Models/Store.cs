@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    class Store
+    public class Shop
     {
+        public Boolean auth { get; set; }       //Kan forklares senere
+
     }
 }

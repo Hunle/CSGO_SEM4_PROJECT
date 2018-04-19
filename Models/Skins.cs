@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    class Skins
+    public class Skins
     {
+        public string Name { get; set; }
+        public int Price { get; set; }
+       // public int FloatValue { get; set; }  // Your condition on ze weeeapon
+
+
+        public Skins()
+        {
+
+        }
+
     }
 }

@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    class Balance
+    public class Balance
     {
+        public double AccountBalance { get; set;  } //Bugger hvis begge hedder "Balance" muligvis wallet istedet for .. 
+        public Balance()
+        {
+
+        }
     }
 }

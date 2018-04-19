@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    class Admin
+    public class Admin
     {
+
+        private Boolean Auth { get; set; }      //Tænker det kan være lettere med en if (Auth == True) { få bestemt adgang}
+
+        public Admin()
+        {
+
+        }
     }
 }
