@@ -8,10 +8,10 @@ namespace Models
 {
     public class Balance
     {
-        public double AccountBalance { get; set;  } //Bugger hvis begge hedder "Balance" muligvis wallet istedet for .. 
+        private double Amount { get; set;  } //Bugger hvis begge hedder "Balance" muligvis wallet istedet for .. 
         public Balance()
         {
-
+            this.Amount = 0; 
         }
     }
 }

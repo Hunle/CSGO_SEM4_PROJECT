@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
-namespace Models
+namespace DB
 {
-    public class Shop
+    class DataAccess
     {
-        private Boolean auth { get; set; }       //Kan forklares senere
-
     }
 }
