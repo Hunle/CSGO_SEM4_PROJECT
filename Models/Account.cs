@@ -8,11 +8,11 @@ namespace Models
 {
     public class Account
     {
-        private int Id { get; set; }
-        private int SteamId { get; set; }
-        private string Name { get; set; }
-        private bool Status { get; set; }
-        private string TradeLink { get; set; }
+        public int Id { get; set; }
+        public int SteamId { get; set; }
+        public string Name { get; set; }
+        public bool Status { get; set; }
+        public string TradeLink { get; set; }
 
         public Account(int id, int steamid, string name, bool status, string tradelink)
         {

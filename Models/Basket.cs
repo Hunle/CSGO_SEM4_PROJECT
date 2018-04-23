@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    class Basket
+    public class Basket
     {
         private int Id { get; set; }
 

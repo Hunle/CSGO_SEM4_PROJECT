@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    class Field
+    public class Field
     {
         private int Id { get; set; }
 
