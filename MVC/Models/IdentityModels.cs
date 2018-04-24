@@ -29,5 +29,7 @@ namespace MVC.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<MVC.Models.AccountModels> AccountModels { get; set; }
     }
 }
