@@ -28,9 +28,9 @@ namespace csgo_sem4_ay.Controllers
         }
 
 
-        public ActionResult Test()
+        public ActionResult Abc()
         {
-            ViewBag.Message = "Your Test Page.";
+        
 
             return View();
         }
