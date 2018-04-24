@@ -26,5 +26,15 @@ namespace csgo_sem4_ay.Controllers
 
             return View();
         }
+
+
+        public ActionResult Test()
+        {
+            ViewBag.Message = "Your Test Page.";
+
+            return View();
+        }
+
+
     }
 }
