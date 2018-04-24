@@ -7,7 +7,7 @@ using Models;
 
 namespace DB
 {
-    class AccountRepository : BaseRepository
+    public class AccountRepository : BaseRepository
     {
         public void Save(Account account)
         {
