@@ -288,6 +288,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Controller\Controller.csproj">
+      <Project>{0997a625-14f4-4510-8144-32b1d891cc9f}</Project>
+      <Name>Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DB\DB.csproj">
+      <Project>{4d914334-8c3d-4902-8adf-86175d79af8d}</Project>
+      <Name>DB</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{C87C8262-FD5D-44F1-98C3-BD1F97C1DDF4}</Project>
       <Name>Models</Name>

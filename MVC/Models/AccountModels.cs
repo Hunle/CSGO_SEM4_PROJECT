@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using Models;
+using DB;
 
 
 namespace MVC.Models
