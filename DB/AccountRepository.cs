@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Models;
+using System.Data.Entity;
 
 namespace DB
 {
@@ -30,7 +31,9 @@ namespace DB
         public Account Load(int id)
         {
             //return context.Accounts.Where(x => x.Id == id).FirstOrDefault();
-            return context.Accounts.FirstOrDefault(x => x.Id == id);
+            
+            Account Acc = context.Accounts.Find(id);
+            return Acc;
         }
 
         public List<Account> LoadAll()
