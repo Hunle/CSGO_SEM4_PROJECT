@@ -17,7 +17,7 @@ namespace CSGO_MVC.Controllers
         public ActionResult LoadSteamAccount()
         {
 
-            Account acc = AccRep.Load(1);
+            AccRep.Load(1);
             return View();
 
         }
