@@ -49,8 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountRepository.cs" />
-    <Compile Include="BalanceRepositorycs.cs" />
+    <Compile Include="BalanceRepository.cs" />
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="BetRepository.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="FieldRepositorycs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
