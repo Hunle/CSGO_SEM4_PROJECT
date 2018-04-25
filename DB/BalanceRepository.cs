@@ -7,7 +7,7 @@ using Models;
 
 namespace DB
 { 
-     public class BalanceRepositorycs : BaseRepository
+     public class BalanceRepository : BaseRepository
 
 {
 
