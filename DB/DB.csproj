@@ -62,9 +62,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Controller\Controller.csproj">
+    <ProjectReference Include="..\Controller\BLL.csproj">
       <Project>{0997a625-14f4-4510-8144-32b1d891cc9f}</Project>
-      <Name>Controller</Name>
+      <Name>BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{c87c8262-fd5d-44f1-98c3-bd1f97c1ddf4}</Project>
