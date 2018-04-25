@@ -29,8 +29,8 @@ namespace DB
 
         public Account Load(int id)
         {
-            return context.Accounts.Where(x => x.Id == id).FirstOrDefault();
-            //return context.Developers.FirstOrDefault(x => x.Id == id);
+            //return context.Accounts.Where(x => x.Id == id).FirstOrDefault();
+            return context.Accounts.FirstOrDefault(x => x.Id == id);
         }
 
         public List<Account> LoadAll()

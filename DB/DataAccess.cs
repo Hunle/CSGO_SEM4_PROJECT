@@ -18,7 +18,7 @@ namespace DB
         public DbSet<Bet> Bets { get; set; }
         public DbSet<Field> Fields { get; set; }
         public DbSet<Skins> Skin { get; set; }
-        
+        0
 
     }
 }
