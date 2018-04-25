@@ -17,20 +17,24 @@ namespace CSGO_MVC.Controllers
         public ActionResult LoadSteamAccount()
         {
 
-            
+            Account acc = AccRep.Load(1);
             return View();
 
         }
 
         // GET: SteamAccount
-        public String Index()
+        public ActionResult Index()
         {
-            return "Test Works";
+            Account acc = AccRep.Load(1);
+            return View(acc);
         }
         public ActionResult SteamAccount()
         {
             Account acc = AccRep.Load(1);
-            return View();
+
+            return View(); 
+           
+
         }
     }
 }

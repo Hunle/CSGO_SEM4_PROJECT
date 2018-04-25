@@ -14,6 +14,10 @@ namespace Models
         public bool Status { get; set; }
         public string TradeLink { get; set; }
 
+        public Account()
+        {
+
+        }
         public Account(int id, int steamid, string name, bool status, string tradelink)
         {
             this.Id = id;
