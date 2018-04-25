@@ -10,7 +10,7 @@ namespace DB
      public class SkinsRepository : BaseRepository
     {
         
-        {
+        
             public void Save(Skins skin)
             {
                 if (skin.Id > 0)
@@ -48,5 +48,4 @@ namespace DB
             }
         }
     }
-}
-}
+
