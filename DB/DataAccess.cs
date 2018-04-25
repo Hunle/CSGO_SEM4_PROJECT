@@ -11,7 +11,7 @@ namespace DB
 {
     public class DataAccess : DbContext
     {
-        public DataAccess() : base("Defaultconnection") { }
+        public DataAccess() : base("DefaultConnection") { }
 
         public DbSet<Account> Accounts { get;  set; }
         public DbSet<Balance> Balances { get; set; }

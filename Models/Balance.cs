@@ -8,7 +8,8 @@ namespace Models
 {
     public class Balance
     {
-        private double Amount { get; set;  } //Bugger hvis begge hedder "Balance" muligvis wallet istedet for .. 
+        public int Id { get; set; }
+        public double Amount { get; set;  } //Bugger hvis begge hedder "Balance" muligvis wallet istedet for .. 
         public Balance()
         {
             this.Amount = 0; 
