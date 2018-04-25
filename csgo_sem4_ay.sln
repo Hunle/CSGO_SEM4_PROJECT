@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB", "DB\DB.csproj", "{4D914334-8C3D-4902-8ADF-86175D79AF8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSGO_MVC", "CSGO_MVC\CSGO_MVC.csproj", "{FC8E04C5-A31F-4FF4-B3DF-8AFC25584715}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4D914334-8C3D-4902-8ADF-86175D79AF8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D914334-8C3D-4902-8ADF-86175D79AF8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D914334-8C3D-4902-8ADF-86175D79AF8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC8E04C5-A31F-4FF4-B3DF-8AFC25584715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC8E04C5-A31F-4FF4-B3DF-8AFC25584715}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC8E04C5-A31F-4FF4-B3DF-8AFC25584715}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC8E04C5-A31F-4FF4-B3DF-8AFC25584715}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
