@@ -46,17 +46,26 @@ namespace CSGO_MVC.Models
         // POST: SteamAccountModels/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,SteamId,Name,Status,TradeLink")] Account steamAccountModels)
+        public ActionResult Create([Bind(Include = "SteamId,Name,Status,TradeLink")] Account steamAccountModels)
         {
+
+            try { 
             if (ModelState.IsValid)
             {
                 Accrep.Save(steamAccountModels);
-                
+                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
             return View(steamAccountModels);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
+
 
         // GET: SteamAccountModels/Edit/5
         public ActionResult Edit(int id)
