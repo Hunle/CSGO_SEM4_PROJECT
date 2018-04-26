@@ -201,6 +201,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\SteamAccountModels.cs" />
+    <Compile Include="Models\SteamAccountModelsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -265,6 +266,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\SteamAccount\SteamAccount.cshtml" />
     <Content Include="Views\SteamAccount\LoadSteamAccount.cshtml" />
+    <Content Include="Views\SteamAccount\Details.cshtml" />
+    <Content Include="Views\SteamAccountModels\Create.cshtml" />
+    <Content Include="Views\SteamAccountModels\Delete.cshtml" />
+    <Content Include="Views\SteamAccountModels\Details.cshtml" />
+    <Content Include="Views\SteamAccountModels\Edit.cshtml" />
+    <Content Include="Views\SteamAccountModels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

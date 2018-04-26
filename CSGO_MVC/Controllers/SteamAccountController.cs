@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using DB;
 using Models;
+using System.Net;
 
 
 
@@ -35,6 +36,20 @@ namespace CSGO_MVC.Controllers
             return View(); 
            
 
+        }
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Account account = AccRep.Load(1);
+            if (account == null)
+            {
+                return HttpNotFound();
+            }
+            return View(account);
         }
     }
 }
