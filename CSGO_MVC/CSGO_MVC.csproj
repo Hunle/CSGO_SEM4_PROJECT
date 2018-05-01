@@ -185,6 +185,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arnes_Repo\IRepository.cs" />
+    <Compile Include="Arnes_Repo\Reposistory.cs" />
     <Compile Include="Content\App_Start\BundleConfig.cs" />
     <Compile Include="Content\App_Start\FilterConfig.cs" />
     <Compile Include="Content\App_Start\IdentityConfig.cs" />
@@ -193,14 +195,15 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\SteamAccController.cs" />
+    <Compile Include="Controllers\SteamAccCrudController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\SteamAcc.cs" />
+    <Compile Include="Models\SteamAccount.cs" />
+    <Compile Include="Arnes_Repo\SteamAccountContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -265,8 +268,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\SteamAcc\Create.cshtml" />
-    <Content Include="Views\SteamAcc\Index.cshtml" />
+    <Content Include="Views\SteamAccCrud\Index.cshtml" />
+    <Content Include="Views\SteamAccCrud\Create.cshtml" />
+    <Content Include="Views\SteamAccCrud\Edit.cshtml" />
+    <Content Include="Views\SteamAccCrud\Details.cshtml" />
+    <Content Include="Views\SteamAccCrud\Delete.cshtml" />
+    <Content Include="Views\SteamAccCrud\DeleteConfirmed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -288,10 +295,6 @@
     <ProjectReference Include="..\Controller\BLL.csproj">
       <Project>{0997a625-14f4-4510-8144-32b1d891cc9f}</Project>
       <Name>BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DB\DB.csproj">
-      <Project>{4d914334-8c3d-4902-8adf-86175d79af8d}</Project>
-      <Name>DB</Name>
     </ProjectReference>
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{C87C8262-FD5D-44F1-98C3-BD1F97C1DDF4}</Project>

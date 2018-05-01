@@ -1,5 +1,5 @@
-﻿using DB;
-using Models;
+﻿using DB.Arnes_Repo;
+using CSGO_MVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,18 +8,19 @@ using System.Web.Mvc;
 
 namespace CSGO_MVC.Controllers
 {
-    public class SteamAccController : Controller
+    public class SteamAccCrudController : Controller
     {
-        AccountRepository accrep = null;
+        private IRepository<SteamAccount> AccountRepo = null;
 
-        public SteamAccController()
+
+        public SteamAccCrudController()
         {
-            this.accrep = new AccountRepository(); 
+            this.AccountRepo = new Reposistory<SteamAccount>();
         }
         public ActionResult Index()
         {
-            var account = accrep.Load(1);
-            return View(account);
+            var acc = AccountRepo.GetAll();
+            return View(acc);
         }
 
         [HttpGet]
@@ -29,58 +30,59 @@ namespace CSGO_MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Account account)
+        public ActionResult Create(SteamAccount acc)
         {
             if (ModelState.IsValid)
             {
-                accrep.Save(account);
-                
+                AccountRepo.Insert(acc);
+                AccountRepo.Save();
                 return RedirectToAction("Index");
             }
             else
             {
-                return View(account);
+                return View(acc);
             }
         }
 
 
         public ActionResult Edit(int Id)
         {
-            var account = accrep.Load(Id);
-            return View(account);
+            var acc = AccountRepo.GetById(Id);
+            return View(acc);
         }
 
         [HttpPost]
-        public ActionResult Edit(Account account)
+        public ActionResult Edit(SteamAccount acc)
         {
             if (ModelState.IsValid)
             {
-                accrep.Save(account);
+                AccountRepo.Update(acc);
+                AccountRepo.Save();
                 return RedirectToAction("Index");
             }
             else
             {
-                return View(account);
+                return View(acc);
             }
         }
 
         public ActionResult Details(int Id)
         {
-            var account = accrep.Load(Id);
-            return View(account);
+            var acc = AccountRepo.GetById(Id);
+            return View(acc);
         }
         public ActionResult Delete(int Id)
         {
-            var account = accrep.Load(Id);
-            return View(account);
+            var acc = AccountRepo.GetById(Id);
+            return View(acc);
         }
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int Id)
         {
-            var acc = accrep.Load(Id);
-            accrep.Delete(Id);
-
+            var acc = AccountRepo.GetById(Id);
+            AccountRepo.Delete(Id);
+            AccountRepo.Save();
             return RedirectToAction("Index");
         }
     }
