@@ -17,8 +17,8 @@ namespace DB
                 //its an update, it has an id
                 Account existingAccount = Load(account.Id);
                 existingAccount.SteamId = account.SteamId;
-                existingAccount.Name = account.Name;
-                existingAccount.Status = account.Status;
+                existingAccount.Username = account.Username;
+                existingAccount.UserStatus = account.UserStatus;
                 existingAccount.TradeLink = account.TradeLink;
             }
             else
@@ -36,9 +36,10 @@ namespace DB
             return Acc;
         }
 
-        public List<Account> LoadAll()
+        public IEnumerable<Account> LoadAll()
         {
-            return context.Accounts.ToList();
+
+            return context.Accounts;
         }
 
         public void Delete(int id)

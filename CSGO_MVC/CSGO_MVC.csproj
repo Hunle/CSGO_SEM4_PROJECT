@@ -193,15 +193,14 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\SteamAccountController.cs" />
+    <Compile Include="Controllers\SteamAccController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\SteamAccountModels.cs" />
-    <Compile Include="Models\SteamAccountModelsController.cs" />
+    <Compile Include="Models\SteamAcc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -230,7 +229,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -264,14 +265,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\SteamAccount\SteamAccount.cshtml" />
-    <Content Include="Views\SteamAccount\LoadSteamAccount.cshtml" />
-    <Content Include="Views\SteamAccount\Details.cshtml" />
-    <Content Include="Views\SteamAccountModels\Create.cshtml" />
-    <Content Include="Views\SteamAccountModels\Delete.cshtml" />
-    <Content Include="Views\SteamAccountModels\Details.cshtml" />
-    <Content Include="Views\SteamAccountModels\Edit.cshtml" />
-    <Content Include="Views\SteamAccountModels\Index.cshtml" />
+    <Content Include="Views\SteamAcc\Create.cshtml" />
+    <Content Include="Views\SteamAcc\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

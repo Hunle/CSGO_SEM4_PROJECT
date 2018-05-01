@@ -9,21 +9,23 @@ namespace Models
     public class Account
     {
         public int Id { get; set; }
-        public int SteamId { get; set; }
-        public string Name { get; set; }
-        public bool Status { get; set; }
+        public long SteamId { get; set; }
+        public string Username { get; set; }
+        public string Avatar { get; set; }
+        public bool UserStatus { get; set; }
         public string TradeLink { get; set; }
 
         public Account()
         {
 
         }
-        public Account(int id, int steamid, string name, bool status, string tradelink)
+        public Account(int id, long steamid, string name, bool status, string tradelink)
         {
             this.Id = id;
             this.SteamId = steamid;
-            this.Name = name;
-            this.Status = status;
+            this.Username = name;
+            this.UserStatus = status;
+            this.Avatar = Avatar; 
             this.TradeLink = tradelink;
 
         }
