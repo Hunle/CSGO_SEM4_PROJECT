@@ -26,6 +26,11 @@ namespace CSGO_MVC
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
-        }
+
+            //slipper for at skrive - src tags 
+          
+                bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                            "~/Scripts/angular.js"));
+            
     }
 }
