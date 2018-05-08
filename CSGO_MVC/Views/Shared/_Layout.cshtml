@@ -7,6 +7,12 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    <!-- Efter bundlet er oprettet og ref. til _layout, burde vi kunne bruge angjs i hele app-->
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
