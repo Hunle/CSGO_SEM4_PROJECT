@@ -1,0 +1,24 @@
+﻿.TextUnderSlide{
+    color: white;
+}
+
+.TextUnderSlide h2{
+    text-indent: 50px; /* skubber linjen ud - et slags indhak*/
+}
+
+
+.TextUnderSlide h3{
+
+    text-indent: 75px; 
+}
+
+.TextUnderSlide h4{
+    text-indent: 100px;
+}
+
+.TextUnderSlide h5{
+    text-indent: 125px;
+}
+.ShopText h1{
+    color: white;
+}

@@ -212,7 +212,15 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Images\wifi.jpg" />
+    <Content Include="Content\CSSFolder\BackgroundColor.css" />
+    <Content Include="Content\CSSFolder\ButtonStyler.css" />
+    <Content Include="Content\CSSFolder\PictureStylerSizer.css" />
+    <Content Include="Content\CSSFolder\ShopItemList.css" />
+    <Content Include="Content\CSSFolder\TextAlligner.css" />
+    <Content Include="Content\Images\skin1.jpg" />
+    <Content Include="Content\Images\skin2.jpg" />
+    <Content Include="Content\Images\skin3.jpg" />
+    <Content Include="Content\Images\SteamLogPic.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
