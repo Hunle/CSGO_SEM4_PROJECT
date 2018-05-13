@@ -2,10 +2,4 @@
  //   "00", "27", "10", "25", "29", "12", "8", "19", "31", "18", "6", "21", "33", "16", "4", "23", "35", "14", "2"];
 
 
-var img = document.querySelector('img');
-img.addEventListener('click', onClick, false);
 
-
-function rotateRol() {
-    img = 
-}
