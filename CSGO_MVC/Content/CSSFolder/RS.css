@@ -1,9 +1,32 @@
-﻿.RouletteWheel a:active img {
-  transform: rotate(600deg);
-   transition: transform 2s ease-out;
+﻿
+.RouletteWheel a:active img {
+    transform: rotate(600deg);
+    transition: transform 2s ease-out;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    width: 400px;
+    margin-left: 10cm;
+    position: relative;
 }
 
-.RouletteWheel button:active img {
-    -webkit-transform: rotate(600deg);
-    -webkit-transition: -webkit-transform 2s ease-out;
+.RouletteWheel img {
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    width: 400px;
+    margin-left: 10cm;
+    position: relative;
+}
+.whiteBoard {
+    width: 1200px;
+    float: left;
+    top: 4cm; 
+   
+
+    position: absolute; /* giver os lov til at rykke billederne ind på hinanden*/
 }

@@ -215,7 +215,6 @@
     <Content Include="Content\CSSFolder\BackgroundColor.css" />
     <Content Include="Content\CSSFolder\ButtonStyler.css" />
     <Content Include="Content\CSSFolder\PictureStylerSizer.css" />
-    <Content Include="Content\CSSFolder\RouletteCSS.css" />
     <Content Include="Content\CSSFolder\RS.css" />
     <Content Include="Content\CSSFolder\ShopCol.css" />
     <Content Include="Content\CSSFolder\ShopItemList.css" />
@@ -226,6 +225,7 @@
     <Content Include="Content\Images\skin3.jpg" />
     <Content Include="Content\Images\SteamLogPic.jpg" />
     <Content Include="Content\Images\WheelRouuuuu.jpg" />
+    <Content Include="Content\Images\whiteBoard.jpg" />
     <Content Include="Content\MyScripts\RouletteScript.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
