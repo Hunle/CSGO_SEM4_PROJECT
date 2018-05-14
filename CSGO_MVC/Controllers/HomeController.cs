@@ -20,7 +20,7 @@ namespace CSGO_MVC.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Contact()           //Roulette
         {
             ViewBag.Message = "Your contact page.";
 
