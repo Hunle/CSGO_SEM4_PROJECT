@@ -11,6 +11,7 @@ namespace CSGO_MVC.Models
         [Key]
         public int Id { get; set; }
         public SteamAccount Betmaker { get; set; }
+        public Field Betfield { get; set; }
         public double BetValue { get; set; }
         public DateTime Date { get; set; }
         public double Min { get; set; }

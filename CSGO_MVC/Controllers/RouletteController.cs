@@ -14,7 +14,8 @@ namespace CSGO_MVC.Controllers
         private FieldController fctrl = new FieldController();
         private SeedController sctrl = new SeedController();
         private static  Random random;
-        private static  Random random2; 
+        private static  Random random2;
+        int[] Seedlist { get; set; }
         private int Seed { get; set; }
 
 
@@ -28,57 +29,34 @@ namespace CSGO_MVC.Controllers
             {
                 Fieldlist.Add(item);
             }
+            Seedlist = sctrl.GetNumber().ToArray();
             random = new Random(Seed);
             random2 = new Random(Seed);
+            var startTimeSpan = TimeSpan.Zero;
+            var periodTimeSpan = TimeSpan.FromMinutes(5);
+
+            var timer = new System.Threading.Timer((e) =>
+            {
+                getRandomSeed();
+            }, null, startTimeSpan, periodTimeSpan);
         }
 
         public int getRandomSeed()
         {
-            int[] Seedlist = sctrl.GetNumber().ToArray();
-
             int i;
             for (i = 0; i < 50; i++)
             {
                 Seed = Seedlist[random2.Next(0, Seedlist.Length)];
+                Seedlist.Take(Seed);
+                if(Seedlist.Length == 0)
+                {
+                    Seedlist = sctrl.GetNumber().ToArray();
+                }
             }
             return Seed;
 
         }
-
-
-            public Field Letsgo()
-            {
-                Random random = new Random();
-                Fieldlist
-            }
-
-
-            public static string SlotText(int slot)
-            {
-                if (Fieldlist[slot] >= 0)
-                {
-                    return Fieldlist[slot].ToString();
-                }
-                else
-                {
-                    return "Else siger noget andet";
-                }
-            }
-            public static ConsoleColor SlotColor(int slot)
-            {
-                if (wheel[slot] > 0)
-                {
-                    //Odd = red , Even = black
-                    return (wheel[slot] % 2 == 0) 
-                }
-                else
-                {
-                    //0 = green
-                    return ConsoleColor.Green;
-                }
-
-            }
-
+           
 
  
         
@@ -92,6 +70,22 @@ namespace CSGO_MVC.Controllers
                 {
 
                    Field winnerfield =  Fieldlist[random.Next(Fieldlist.Count())];
+                Console.WriteLine(winnerfield.Color);
+                Console.WriteLine(winnerfield.Number.ToString());
+                if((accountbet.Betfield.Number == winnerfield.Number) && (accountbet.Betfield.Color.Equals(winnerfield.Color)))
+                {
+                    Console.WriteLine("You've won your bet! Earnings are" + (accountbet.BetValue *= accountbet.BetValue));
+                    accountbet.Betmaker.accountbalance.Amount += accountbet.BetValue;
+                }
+                else
+                {
+                    Console.WriteLine("You have lost your bet! Your bet value of" + accountbet.BetValue + " Will be substracted from your balance.");
+                        accountbet.Betmaker.accountbalance.Amount -= accountbet.BetValue;
+
+                }
+                
+
+                return winnerfield;
                 
                 }
             

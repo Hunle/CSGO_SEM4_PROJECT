@@ -11,6 +11,7 @@ namespace CSGO_MVC.Models
         [Key]
         public int Id { get; set; }
         public long SteamId { get; set; }
+        public Balance accountbalance { get; set; }
         public string UserName { get; set; }
         public bool UserStatus { get; set; }
         public string TradeLink { get; set; }

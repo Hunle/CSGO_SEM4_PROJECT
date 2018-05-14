@@ -39,6 +39,7 @@ namespace CSGO_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                acc.accountbalance.Amount = 0;
                 AccountRepo.Insert(acc);
                 AccountRepo.Save();
                 return RedirectToAction("Index");
@@ -71,6 +72,11 @@ namespace CSGO_MVC.Controllers
             }
         }
 
+        public SteamAccount GetById(int Id)
+        {
+            var acc = AccountRepo.GetById(Id);
+            return acc;
+        }
         public ActionResult Details(int Id)
         {
             var acc = AccountRepo.GetById(Id);

@@ -12,6 +12,7 @@ namespace CSGO_MVC.Controllers
     public class BetController : Controller
     {
         private IRepository<Bet> BetRepo = null;
+        private SteamAccCrudController stctrl = new SteamAccCrudController();
 
 
         public BetController()
@@ -40,6 +41,8 @@ namespace CSGO_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+               // bet.Betmaker = stctrl.GetById(?)
+                bet.Date = DateTime.Now;
                 BetRepo.Insert(bet);
                 BetRepo.Save();
                 return RedirectToAction("Index");

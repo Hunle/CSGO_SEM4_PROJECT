@@ -12,7 +12,7 @@ namespace CSGO_MVC.Models
         public int Id { get; set; }
         public double Amount { get; set; } //Bugger hvis begge hedder "Balance" muligvis wallet istedet for .. 
 
-        public Balance (int amount)
+        public Balance (double amount)
         {
             this.Amount = amount;
         }
