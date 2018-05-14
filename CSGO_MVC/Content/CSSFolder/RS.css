@@ -1,5 +1,5 @@
 ﻿
-.RouletteWheel a:active img {
+/*.RouletteWheel a:active img {
     transform: rotate(600deg);
     transition: transform 2s ease-out;
     display: block;
@@ -10,6 +10,17 @@
     width: 400px;
     margin-left: 10cm;
     position: relative;
+}*/
+
+.RouletteWheel a:active img {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    transition-duration: 1s;
 }
 
 .RouletteWheel img {
@@ -22,9 +33,9 @@
     margin-left: 10cm;
     position: relative;
 }
-.whiteBoard {
+/*.whiteBoard {
     width: 1200px;
     float: left;
     top: 4cm; 
     position: absolute; /* giver os lov til at rykke billederne ind på hinanden*/
-}    
+}*/    
