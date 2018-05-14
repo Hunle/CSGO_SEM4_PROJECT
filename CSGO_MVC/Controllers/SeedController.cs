@@ -20,10 +20,7 @@ namespace CSGO_MVC.Controllers
         const string URL = "https://www.fourmilab.ch/cgi-bin/Hotbits.api?nbytes=50&fmt=xml&npass=1&lpass=8&pwtype=3&apikey=HB1bnGVyQmCsrTj8GYd7CDaWQX0";
         static HttpClient client = new HttpClient();
         public int[] Numberseed { get; set; }
-        static void Main(string[] args)
-        {
-            //RunAsync().Wait();
-        }
+       
         //static async Task<string> GetProductAsync(string path = "")
         //{
         //    string RNGSeed = string.Empty;
@@ -54,9 +51,7 @@ namespace CSGO_MVC.Controllers
             string randomNumbers = (string)doc.Descendants("random-data").FirstOrDefault();
 
             Numberseed = randomNumbers.Split(new char[] { ' ', '\n' }, StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x, System.Globalization.NumberStyles.HexNumber)).ToArray();
-
-            Console.WriteLine(string.Join(",", Numberseed.Select(x => x.ToString())));
-            Console.ReadLine();
+            
             
         }
 
