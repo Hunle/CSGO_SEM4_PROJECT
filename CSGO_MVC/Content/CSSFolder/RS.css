@@ -12,7 +12,7 @@
     position: relative;
 }*/
 
-.RouletteWheel a:active img {
+/*.RouletteWheel a:active img {
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
     -o-transform: rotate(45deg);
@@ -21,7 +21,7 @@
     -moz-transition-duration: 1s;
     -o-transition-duration: 1s;
     transition-duration: 1s;
-}
+}*/
 
 .RouletteWheel img {
     display: block;
