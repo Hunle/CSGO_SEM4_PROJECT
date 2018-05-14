@@ -22,11 +22,5 @@ namespace CSGO_MVC.Controllers
         private readonly string _apiKey = "1e90f201-feed-4ebd-849f-34c40709e027";
         private readonly HttpMessageInvoker _httpInvoker;
         private readonly SemaphoreSlim _semaphore = new SemaphoreSlim(1, 1);
-
-        
-
-
-
-
     }
 }
