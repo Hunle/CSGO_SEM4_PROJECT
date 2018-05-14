@@ -58,11 +58,11 @@ namespace CSGO_MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(FieldAccessException field)
+        public ActionResult Edit(Field field)
         {
             if (ModelState.IsValid)
             {
-                FieldRepo.Update(acc);
+                FieldRepo.Update(field);
                 FieldRepo.Save();
                 return RedirectToAction("Index");
             }

@@ -13,10 +13,11 @@ namespace CSGO_MVC.Controllers
         static List<Field> Fieldlist = new List<Field>();
         private FieldController fctrl = new FieldController();
         private SeedController sctrl = new SeedController();
-        private static  Random random;
-        private static  Random random2;
+        private   Random random;
+        private   Random random2;
         int[] Seedlist { get; set; }
         private int Seed { get; set; }
+        public Field winnerfield { get; set; }
 
 
 
@@ -60,7 +61,7 @@ namespace CSGO_MVC.Controllers
 
  
         
-            static public Field RouletteGame(Bet accountbet)
+            public Field RouletteGame(Bet accountbet)
             {
                 RouletteController roulette = new RouletteController(new Random(2));
 
@@ -69,7 +70,7 @@ namespace CSGO_MVC.Controllers
 
                 {
 
-                   Field winnerfield =  Fieldlist[random.Next(Fieldlist.Count())];
+                winnerfield =  Fieldlist[random.Next(Fieldlist.Count())];
                 Console.WriteLine(winnerfield.Color);
                 Console.WriteLine(winnerfield.Number.ToString());
                 if((accountbet.Betfield.Number == winnerfield.Number) && (accountbet.Betfield.Color.Equals(winnerfield.Color)))
@@ -85,10 +86,10 @@ namespace CSGO_MVC.Controllers
                 }
                 
 
-                return winnerfield;
+                
                 
                 }
-            
+            return winnerfield;
             }
 
 
