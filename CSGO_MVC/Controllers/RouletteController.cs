@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Models;
+using CSGO_MVC.Models;
 
 namespace CSGO_MVC.Controllers 
 
@@ -11,20 +11,45 @@ namespace CSGO_MVC.Controllers
     public class RouletteController
     {
         static List<Field> Fieldlist = new List<Field>();
-        
-            
-        Random random;
-        static void Main(string[] args)
-        {
-            public RouletteController(Random random)
-            {
-                this.random = random;
-                Fieldlist.Add;
-            }
+        private FieldController fctrl = new FieldController();
+        private SeedController sctrl = new SeedController();
+        private static  Random random;
+        private static  Random random2; 
+        private int Seed { get; set; }
 
-            public int RandomSlot()
+
+
+
+
+        public RouletteController(Random random)
+        {
+            var list = fctrl.GetAll();
+            foreach (var item in list)
             {
-                return random.Next(wheel.Length);
+                Fieldlist.Add(item);
+            }
+            random = new Random(Seed);
+            random2 = new Random(Seed);
+        }
+
+        public int getRandomSeed()
+        {
+            int[] Seedlist = sctrl.GetNumber().ToArray();
+
+            int i;
+            for (i = 0; i < 50; i++)
+            {
+                Seed = Seedlist[random2.Next(0, Seedlist.Length)];
+            }
+            return Seed;
+
+        }
+
+
+            public Field Letsgo()
+            {
+                Random random = new Random();
+                Fieldlist
             }
 
 
@@ -44,7 +69,7 @@ namespace CSGO_MVC.Controllers
                 if (wheel[slot] > 0)
                 {
                     //Odd = red , Even = black
-                    return (wheel[slot] % 2 == 0) ? ConsoleColor.Black : ConsoleColor.Red;
+                    return (wheel[slot] % 2 == 0) 
                 }
                 else
                 {
@@ -57,22 +82,19 @@ namespace CSGO_MVC.Controllers
 
  
         
-            static void Main(string[] args)
+            static public Field RouletteGame(Bet accountbet)
             {
                 RouletteController roulette = new RouletteController(new Random(2));
 
                 // spin it, do it. 
-                for (int i = 0; i < 50; i++)
+                for (int i = 0; i < 50; i++)                 
+
                 {
-                    int slot = roulette.RandomSlot();
-                    ConsoleColor color = RouletteController.SlotColor(slot);
-                    string text = RouletteController.SlotText(slot);
-                    Console.WriteLine("{0} {1}", text, color);
-                    Console.ReadLine();
 
-
+                   Field winnerfield =  Fieldlist[random.Next(Fieldlist.Count())];
+                
                 }
-
+            
             }
 
 

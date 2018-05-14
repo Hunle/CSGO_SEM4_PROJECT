@@ -23,6 +23,11 @@ namespace CSGO_MVC.Controllers
             return View(acc);
         }
 
+        public void GetAll()
+        {
+            var acc = AccountRepo.GetAll();            
+        }
+
         [HttpGet]
         public ActionResult Create()
         {

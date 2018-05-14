@@ -6,27 +6,27 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace CSGO_MVC.Controllers
 {
-    public class FieldController : Controller
+    public class BetController : Controller
     {
-        private IRepository<Field> FieldRepo = null;
+        private IRepository<Bet> BetRepo = null;
 
 
-        public FieldController()
+        public BetController()
         {
-            this.FieldRepo = new Reposistory<Field>();
+            this.BetRepo = new Reposistory<Bet>();
         }
         public ActionResult Index()
         {
-            var acc = FieldRepo.GetAll();
-            return View(acc);
+            var bet = BetRepo.GetAll();
+            return View(bet);
         }
 
-        public IEnumerable<Field> GetAll()
+        public void GetAll()
         {
-            var fields = FieldRepo.GetAll();
-            return fields;
+            var bet = BetRepo.GetAll();
         }
 
         [HttpGet]
@@ -36,59 +36,59 @@ namespace CSGO_MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Field field)
+        public ActionResult Create(Bet bet)
         {
             if (ModelState.IsValid)
             {
-                FieldRepo.Insert(field);
-                FieldRepo.Save();
+                BetRepo.Insert(bet);
+                BetRepo.Save();
                 return RedirectToAction("Index");
             }
             else
             {
-                return View(field);
+                return View(bet);
             }
         }
 
 
         public ActionResult Edit(int Id)
         {
-            var field = FieldRepo.GetById(Id);
-            return View(field);
+            var bet = BetRepo.GetById(Id);
+            return View(bet);
         }
 
         [HttpPost]
-        public ActionResult Edit(FieldAccessException field)
+        public ActionResult Edit(Bet bet)
         {
             if (ModelState.IsValid)
             {
-                FieldRepo.Update(acc);
-                FieldRepo.Save();
+                BetRepo.Update(bet);
+                BetRepo.Save();
                 return RedirectToAction("Index");
             }
             else
             {
-                return View(field);
+                return View(bet);
             }
         }
 
         public ActionResult Details(int Id)
         {
-            var field = FieldRepo.GetById(Id);
-            return View(field);
+            var bet = BetRepo.GetById(Id);
+            return View(bet);
         }
         public ActionResult Delete(int Id)
         {
-            var field = FieldRepo.GetById(Id);
-            return View(field);
+            var bet = BetRepo.GetById(Id);
+            return View(bet);
         }
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int Id)
         {
-            var field = FieldRepo.GetById(Id);
-            FieldRepo.Delete(Id);
-            FieldRepo.Save();
+            var bet = BetRepo.GetById(Id);
+            BetRepo.Delete(Id);
+            BetRepo.Save();
             return RedirectToAction("Index");
         }
     }
