@@ -75,7 +75,7 @@ namespace CSGO_MVC.Controllers
                 Console.WriteLine(winnerfield.Number.ToString());
                 if((accountbet.Betfield.Number == winnerfield.Number) && (accountbet.Betfield.Color.Equals(winnerfield.Color)))
                 {
-                    Console.WriteLine("You've won your bet! Earnings are" + (accountbet.BetValue *= accountbet.BetValue));
+                    Console.WriteLine("Congratulations, " + accountbet.Betmaker.UserName + "! Your prize is" + (accountbet.BetValue *= accountbet.BetValue));
                     accountbet.Betmaker.accountbalance.Amount += accountbet.BetValue;
                 }
                 else
