@@ -13,6 +13,7 @@ namespace CSGO_MVC.Models
         public long SteamId { get; set; }
         public Balance accountbalance { get; set; }
         public string UserName { get; set; }
+        public string Password { get; set; }
         public bool UserStatus { get; set; }
         public string TradeLink { get; set; }
         public List<Skin> AccountSkins { get; set; }
