@@ -33,9 +33,12 @@ namespace CSGO_MVC.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create()
+        public Balance CreateonCreateAccount()
         {
-            return View();
+            Balance balance = new Balance(+);
+            BalRepo.Insert(balance);
+            BalRepo.Save();
+            return balance;
         }
 
         [HttpPost]

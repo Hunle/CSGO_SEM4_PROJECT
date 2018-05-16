@@ -58,9 +58,6 @@ namespace CSGO_MVC.Controllers
 
         }
            
-
- 
-        
             public Field RouletteGame(Bet accountbet)
             {
                 RouletteController roulette = new RouletteController(new Random(2));

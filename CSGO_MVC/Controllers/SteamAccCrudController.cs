@@ -11,6 +11,7 @@ namespace CSGO_MVC.Controllers
     public class SteamAccCrudController : Controller
     {
         private IRepository<SteamAccount> AccountRepo = null;
+        private BalanceController bctrl = new BalanceController();
 
 
         public SteamAccCrudController()
@@ -39,7 +40,7 @@ namespace CSGO_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                Balance accountbalance = new Balance(0);
+                Balance accountbalance = bctrl.CreateonCreateAccount();
                 acc.accountbalance = accountbalance;
                 AccountRepo.Insert(acc);
                 AccountRepo.Save();
