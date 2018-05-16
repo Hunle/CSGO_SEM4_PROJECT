@@ -35,7 +35,7 @@ namespace CSGO_MVC.Controllers
         [HttpGet]
         public Balance CreateonCreateAccount()
         {
-            Balance balance = new Balance(+);
+            Balance balance = new Balance();
             BalRepo.Insert(balance);
             BalRepo.Save();
             return balance;
