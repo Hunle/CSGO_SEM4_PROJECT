@@ -44,8 +44,7 @@ namespace CSGO_MVC.Controllers
 
         public int getRandomSeed()
         {
-            int i;
-            for (i = 0; i < 50; i++)
+            for (int i = 0; i < 50; i++)
             {
                 Seed = Seedlist[random2.Next(0, Seedlist.Length)];
                 Seedlist.Take(Seed);
