@@ -13,7 +13,7 @@ using CSGO_MVC.Arnes_Repo;
 
 namespace CSGO_MVC.Controllers
 {
-    [Authorize]
+    
     public class SteamAccCrudController : Controller
     {
         private IRepository<SteamAccount> AccountRepo = null;
