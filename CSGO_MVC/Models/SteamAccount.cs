@@ -15,6 +15,32 @@ namespace CSGO_MVC.Models
         public string UserName { get; set; }
         public bool UserStatus { get; set; }
         public string TradeLink { get; set; }
+        public List<Skin> AccountSkins { get; set; }
 
+        public SteamAccount()
+        {
+            AccountSkins = new List<Skin>();
+            //nødt til at lave mock data.
+            AccountSkins.Add(new Skin
+            {
+                Name = "AK47 | Neon Revolution",
+                Price = 100,
+                State = "Factory New"
+            });
+            AccountSkins.Add(new Skin
+            {
+                Name = "AWP | Fever Dream",
+                Price = 10,
+                State = "Minimal wear"
+            });
+            AccountSkins.Add(new Skin
+            {
+                Name = "M4A4 | Desolate Space StatTrack",
+                Price = 50,
+                State = "Field Tested"
+            });
+
+
+        }
     }
 }

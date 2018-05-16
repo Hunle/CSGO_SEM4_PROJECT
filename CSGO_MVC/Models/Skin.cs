@@ -15,13 +15,6 @@ namespace CSGO_MVC.Models
         // public int FloatValue { get; set; }  // Your condition on ze weeeapon
 
 
-        public Skin(string skinname, int skinprice, string skinstatus)
-        {
-            this.Name = skinname;
-            this.Price = skinprice;
-            this.State = skinstatus;
-
-        }
 
     }
 }
