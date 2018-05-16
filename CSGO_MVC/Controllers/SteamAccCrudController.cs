@@ -39,7 +39,8 @@ namespace CSGO_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                acc.accountbalance.Amount = 0;
+                Balance accountbalance = new Balance(0);
+                acc.accountbalance = accountbalance;
                 AccountRepo.Insert(acc);
                 AccountRepo.Save();
                 return RedirectToAction("Index");
