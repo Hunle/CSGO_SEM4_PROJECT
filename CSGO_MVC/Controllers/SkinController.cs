@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 
 
 namespace CSGO_MVC.Controllers
@@ -91,6 +92,22 @@ namespace CSGO_MVC.Controllers
             SkinRepo.Delete(Id);
             SkinRepo.Save();
             return RedirectToAction("Index");
+        }
+
+        public IEnumerable<Skin> GetAccountSkins(long Steamid)
+        {
+            // ville igen være nemmere bare at gøre parameteren til string
+            string steamid2 = Steamid.ToString();
+            // ** WebApiErrorMessage": "Method permanently disabled, see https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Economy_Items" TAK VALVE
+            XDocument doc = XDocument.Load("http://api.steampowered.com/IEconItems_730/GetPlayerItems/v1/?key=8043B535FFFFA67E92D4542AD3EEDCDD&steamid=" + Uri.EscapeDataString(steamid2) + " & format=xml");
+            List<Skin> skinlist = doc.Descendants("Counter-Strike:GlobalOffensive_EcoItems").Select(d =>
+                        new Skin
+                            {
+                                Name = (string) d.Attribute("SkinName"),
+                                Price = (int) d.Attribute("MarketPrice"),
+                                State = (string) d.Attribute("Quality")
+                            }).ToList();
+            return skinlist;
         }
     }
 }

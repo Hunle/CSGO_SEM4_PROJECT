@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
+using System.IO;
+using System.Net;
 
 namespace CSGO_MVC.Controllers
 {
@@ -42,6 +45,7 @@ namespace CSGO_MVC.Controllers
             {
                 Balance accountbalance = bctrl.CreateonCreateAccount();
                 acc.accountbalance = accountbalance;
+                acc.UserName = GetUsernameFromId(acc.SteamId);
                 AccountRepo.Insert(acc);
                 AccountRepo.Save();
                 return RedirectToAction("Index");
@@ -74,6 +78,7 @@ namespace CSGO_MVC.Controllers
             }
         }
 
+
         public SteamAccount GetById(int Id)
         {
             var acc = AccountRepo.GetById(Id);
@@ -97,6 +102,17 @@ namespace CSGO_MVC.Controllers
             AccountRepo.Delete(Id);
             AccountRepo.Save();
             return RedirectToAction("Index");
+        }
+
+        public string GetUsernameFromId(long Steamid)
+        {
+            // Ville være nemmere at ændre alle parameteren SteamId til string
+            string steamid2 = Steamid.ToString();
+            XDocument doc = XDocument.Load("http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=8043B535FFFFA67E92D4542AD3EEDCDD&steamids=" + Uri.EscapeDataString(steamid2) + "&format=xml");
+
+            string UserNames = (string)doc.Descendants("personaname").FirstOrDefault();
+
+            return UserNames;
         }
     }
 }
