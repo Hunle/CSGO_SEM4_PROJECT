@@ -51,6 +51,13 @@ namespace CSGO_MVC.Controllers
                 return View(skin);
             }
         }
+        public void CreateonCreateAccount(Skin skin)
+        {
+       
+            SkinRepo.Insert(skin);
+            SkinRepo.Save();
+            
+        }
 
 
         public ActionResult Edit(int Id)

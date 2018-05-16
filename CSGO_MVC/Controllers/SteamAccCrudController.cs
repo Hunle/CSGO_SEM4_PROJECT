@@ -15,6 +15,7 @@ namespace CSGO_MVC.Controllers
     {
         private IRepository<SteamAccount> AccountRepo = null;
         private BalanceController bctrl = new BalanceController();
+        private SkinController sctrl = new SkinController();
 
 
         public SteamAccCrudController()
@@ -46,6 +47,10 @@ namespace CSGO_MVC.Controllers
                 Balance accountbalance = bctrl.CreateonCreateAccount();
                 acc.accountbalance = accountbalance;
                 acc.UserName = GetUsernameFromId(acc.SteamId);
+                foreach (var item in acc.AccountSkins)
+                {
+                    sctrl.CreateonCreateAccount(item);
+                }
                 AccountRepo.Insert(acc);
                 AccountRepo.Save();
                 return RedirectToAction("Index");
