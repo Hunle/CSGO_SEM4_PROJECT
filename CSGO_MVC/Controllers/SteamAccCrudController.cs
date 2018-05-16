@@ -34,8 +34,17 @@ namespace CSGO_MVC.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult Create(long Steamid)
         {
+            Balance accBalance = bctrl.CreateonCreateAccount();
+
+            SteamAccount acc = new SteamAccount
+            {
+                UserName = GetUsernameFromId(Steamid),
+                accountbalance = accBalance
+                
+            };
+            Create(acc);
             return View();
         }
 
