@@ -61,7 +61,7 @@ namespace CSGO_MVC.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create(string password, long Steamid)
+        public ActionResult Create(string Tradelink, string password, long Steamid)
         {
             Balance accBalance = bctrl.CreateonCreateAccount();
 
@@ -69,7 +69,8 @@ namespace CSGO_MVC.Controllers
             {
                 UserName = GetUsernameFromId(Steamid),
                 Password = password,
-                accountbalance = accBalance
+                accountbalance = accBalance,
+                TradeLink = Tradelink
                 
             };
             Create(acc);
