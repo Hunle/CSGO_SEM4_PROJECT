@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using CSGO_MVC.Models;
 
 namespace CSGO_MVC.Controllers 
 
 {
-    public class RouletteController
+    public class RouletteController : Controller
     {
 
         private static RouletteController Instance;
@@ -90,8 +91,10 @@ namespace CSGO_MVC.Controllers
                 }
                                  
                 }
+
+            ViewBag.ViewBagName = winnerfield;
             return winnerfield;
-            }
+        }
 
         }
 

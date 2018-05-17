@@ -1,12 +1,11 @@
 ﻿<!doctype html>
 <html lang="en">
-<!--
+@model CSGO_MVC.Controllers.RouletteController
 @{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "RouletteGame";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-    -->
+
+    
 <head>
     <script src="~/Content/MyScripts/RouletteScript.js"> </script>
     <link rel="stylesheet" href="~/Content/CSSFolder/BackgroundColor.css" />
@@ -26,10 +25,26 @@
             <img class="whiteBoard" src="~/Content/Images/whiteBoard.jpg" />
         </div>*@
 
-    <button value="100">100</button>
-    <button value="200">200</button>
-    <button value="300">300</button>
-    <div class="total"></div>
+
+
+    <h1> Bet Test</h1>
+
+    <input type="button" value="50" onClick="document.getElementById('textfield').innerHTML=this.value">
+    <input type="button" value="100" onClick="document.getElementById('textfield').innerHTML=this.value">
+    <input type="button" value="150" onClick="document.getElementById('textfield').innerHTML=this.value">
+    <input type="button" value="200" onClick="document.getElementById('textfield').innerHTML=this.value">
+
+    <br />
+    <textarea id="textfield" disabled></textarea>
+
+
+
+    <h1> Roulette Tal test</h1>
+
+    <p>
+        Number : @ViewBag.ViewBagName
+
+    </p>
 
 
 </body>
