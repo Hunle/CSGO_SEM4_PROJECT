@@ -1,17 +1,46 @@
 ﻿@model CSGO_MVC.Models.SteamAccount
+
 @{
     ViewBag.Title = "Login";
 }
 
 <h2>Login</h2>
-<h4>@ViewBag.StatusMessage</h4>
-<div style="margin-left:20px;">
-    @using (Html.BeginForm("Login", "SteamAccCrud", FormMethod.Post))
+
+@using (Html.BeginForm("Login", "SteamAccCrud", FormMethod.Post))
+{
+
+
+    //this  is for create form tag
+    @Html.AntiForgeryToken() // this is for prevent CSRF attack
+    @Html.ValidationSummary(true)
+    if (@ViewBag.Message != null)
     {
-        <p>Brugernavn: </p>@Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })<br />
-        <p>Kodeord: </p>@Html.PasswordFor(x => x.Password, new { @class = "form-control" })<br />
-        <button type="submit" class="btn btn-default">Log ind</button>
-        <br /><br />
+        
     }
-</div>
-<p>Har du ikke en bruger endnu? @Html.ActionLink("Registrer Her", "Create", "SteamAccCrud")</p>
+    <table>
+        <tr>
+            <td>@Html.LabelFor(a => a.UserName)</td>
+            <td>@Html.TextBoxFor(a => a.UserName)</td>
+            <td>@Html.ValidationMessageFor(a => a.UserName)</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.Password)
+            </td>
+            <td>
+                @Html.PasswordFor(a => a.Password)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.Password)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Login" />
+            </td>
+            <td></td>
+        </tr>
+    </table>
+}
+    

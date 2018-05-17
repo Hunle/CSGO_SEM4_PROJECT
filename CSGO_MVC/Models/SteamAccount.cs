@@ -10,13 +10,25 @@ namespace CSGO_MVC.Models
     {
         [Key]
         public int Id { get; set; }
+
         public long SteamId { get; set; }
+
         public Balance accountbalance { get; set; }
+
+        [Required(ErrorMessage = "Please Provide Username", AllowEmptyStrings = false)]
         public string UserName { get; set; }
+
+        [Required(ErrorMessage = "Please provide password", AllowEmptyStrings = false)]
+        [DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
         public string Password { get; set; }
+
         public bool UserStatus { get; set; }
+
         public string TradeLink { get; set; }
+
         public List<Skin> AccountSkins { get; set; }
+
+ 
 
         public SteamAccount()
         {
@@ -40,7 +52,7 @@ namespace CSGO_MVC.Models
                 Price = 50,
                 State = "Field Tested"
             });
-            accountbalance.Amount = AccountSkins.Sum(Skin => Skin.Price);
+            //accountbalance.Amount = AccountSkins.Sum(Skin => Skin.Price);
 
         }
     }
