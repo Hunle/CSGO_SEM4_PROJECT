@@ -84,8 +84,6 @@ namespace CSGO_MVC.Controllers
                     Console.WriteLine("You have lost your bet! Your bet value of" + accountbet.BetValue + " Will be substracted from your balance.");
                         accountbet.Betmaker.accountbalance.Amount -= accountbet.BetValue;
                 }
-                                                
-
             ViewBag.ViewBagName = winnerfield;
             return winnerfield;
         }
