@@ -61,13 +61,14 @@ namespace CSGO_MVC.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create(long Steamid)
+        public ActionResult Create(string password, long Steamid)
         {
             Balance accBalance = bctrl.CreateonCreateAccount();
 
             SteamAccount acc = new SteamAccount
             {
                 UserName = GetUsernameFromId(Steamid),
+                Password = password,
                 accountbalance = accBalance
                 
             };
