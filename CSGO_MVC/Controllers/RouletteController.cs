@@ -10,10 +10,12 @@ namespace CSGO_MVC.Controllers
 {
     public class RouletteController
     {
+
+        private static RouletteController Instance;
         static List<Field> Fieldlist = new List<Field>();
         private FieldController fctrl = new FieldController();
         private SeedController sctrl = new SeedController();
-        private   Random random;
+        private Random random;
         private   Random random2;
         int[] Seedlist { get; set; }
         private int Seed { get; set; }
@@ -23,7 +25,7 @@ namespace CSGO_MVC.Controllers
 
 
 
-        public RouletteController(Random random)
+        public RouletteController()
         {
             var list = fctrl.GetAll();
             foreach (var item in list)
@@ -40,6 +42,15 @@ namespace CSGO_MVC.Controllers
             {
                 getRandomSeed();
             }, null, startTimeSpan, periodTimeSpan);
+        }
+
+        public static RouletteController GetInstance()
+        {
+            if(Instance == null)
+            {
+                Instance = new RouletteController();
+            }
+            return Instance;
         }
 
         public int getRandomSeed()
@@ -59,9 +70,7 @@ namespace CSGO_MVC.Controllers
            
             public Field RouletteGame(Bet accountbet)
             {
-                RouletteController roulette = new RouletteController(new Random(2));
-
-                // spin it, do it. 
+              
                 for (int i = 0; i < 50; i++)                 
 
                 {
@@ -78,19 +87,12 @@ namespace CSGO_MVC.Controllers
                 {
                     Console.WriteLine("You have lost your bet! Your bet value of" + accountbet.BetValue + " Will be substracted from your balance.");
                         accountbet.Betmaker.accountbalance.Amount -= accountbet.BetValue;
-
                 }
-                
-
-                
-                
+                                 
                 }
             return winnerfield;
             }
 
-
-
-
-
         }
+
     }
