@@ -240,6 +240,7 @@
     <Content Include="Content\Images\SteamLogPic.jpg" />
     <Content Include="Content\Images\WheelRouuuuu.jpg" />
     <Content Include="Content\Images\whiteBoard.jpg" />
+    <Content Include="Content\MyScripts\BetValueButtonScript.js" />
     <Content Include="Content\MyScripts\jQueryRoulette.js" />
     <Content Include="Content\MyScripts\RouletteScript.js" />
     <Content Include="favicon.ico" />

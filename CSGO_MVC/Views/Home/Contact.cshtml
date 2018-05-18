@@ -1,16 +1,19 @@
 ﻿<!doctype html>
 <html lang="en">
-@model CSGO_MVC.Controllers.RouletteController
+@model CSGO_MVC.Models.Bet
+
 @{
     ViewBag.Title = "title";
 }
 
-    
+
 <head>
-    <script src="~/Content/MyScripts/RouletteScript.js"> </script>
+    <script src="~/Content/MyScripts/RouletteScript.js"></script>
+    <script src="~/Content/MyScripts/BetValueButtonScript.js"></script>
     <link rel="stylesheet" href="~/Content/CSSFolder/BackgroundColor.css" />
     <link rel="stylesheet" href="~/Content/CSSFolder/RouletteCSS.css." />
     <link rel="stylesheet" href="~/Content/CSSFolder/RS.css" />
+
 
 </head>
 
@@ -21,40 +24,85 @@
     </div>
     <script src="~/Content/MyScripts/jQueryRoulette.js"></script>
 
-    @*<div class="RouletteFillings">
+    <!--
+    <div class="RouletteFillings">
             <img class="whiteBoard" src="~/Content/Images/whiteBoard.jpg" />
-        </div>*@
+        </div>
+        -->
 
-
-
-    <h1> Bet Test</h1>
-
-    <input type="button" value="50" onClick="document.getElementById('textfield').innerHTML=this.value">
-    <input type="button" value="100" onClick="document.getElementById('textfield').innerHTML=this.value">
-    <input type="button" value="150" onClick="document.getElementById('textfield').innerHTML=this.value">
-    <input type="button" value="200" onClick="document.getElementById('textfield').innerHTML=this.value">
-
-    <br />
-    <textarea id="textfield" disabled></textarea>
 
 
 
     <h1> Roulette test</h1>
+    <hr />
 
-    <p>
-        Number : @ViewBag.ViewBagName
-        @Html.ViewBag.ViewBagName
-        @ViewBag.TEST
-        Numver2:
 
-        <!--
-        snabelausing CSGO_MVC.Controllers;
-        snabelaRouletteController.RouletteGame;
-        snabelaHtml.TextBoxFor(x => x.RouletteGame.ViewBag);
+    <h1> Bet Test</h1>
+
+    
+    
+  <p id="demo"> </p>
+
+    <br />
+
+    <input type="button" id="b1" onclick="myFunction(this)" value='50'>
+    <input type="button" id="b1" onclick="myFunction(this)" value='100'>
+    <input type="button" id="b1" onclick="myFunction(this)" value='150'>
+    <input type="button" id="b1" onclick="myFunction(this)" value='200'>
+    <input type="button" id="b1" onclick="myFunction(this)" value='250'>
+    <input type="button" id="b1" onclick="myFunction(this)" value='500'>
+
+    <script>
+        function myFunction(button) {
+            var x = button.value;
+            document.getElementById("demo").innerHTML = x;
+
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+    <!--
+     Hvis Script ikke virker tag det her
+    @{
+
+        var BetV = 500;
+
+        <input class="btnBetValue" type="button" value="@(BetV)" onclick="document.getElementById('totalBet').innerHTML=this.value">
+
+
+
+        <p>BetValue: @(BetV)</p>
+
+        var TotalBetValue = BetV = +BetV;
+        <textarea id="totalBet" disabled> </textarea>
+
+    }
+
+    <p>Total Value:@(TotalBetValue)</p>
+
         -->
+    <!--
+        <p>
+            Number : @ViewBag.ViewBagName
+            @Html.ViewBag.ViewBagName
+            @ViewBag.TEST
+            Numver2:
+
+
+            snabelausing CSGO_MVC.Controllers;
+            snabelaRouletteController.RouletteGame;
+            snabelaHtml.TextBoxFor(x => x.RouletteGame.ViewBag);
 
     </p>
-
+    -->
 
 </body>
 </html>
