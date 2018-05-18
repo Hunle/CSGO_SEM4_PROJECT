@@ -189,9 +189,7 @@
     <Compile Include="Arnes_Repo\Reposistory.cs" />
     <Compile Include="Content\App_Start\BundleConfig.cs" />
     <Compile Include="Content\App_Start\FilterConfig.cs" />
-    <Compile Include="Content\App_Start\IdentityConfig.cs" />
     <Compile Include="Content\App_Start\RouteConfig.cs" />
-    <Compile Include="Content\App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\BalanceController.cs" />
     <Compile Include="Controllers\BetController.cs" />
     <Compile Include="Controllers\FieldController.cs" />
