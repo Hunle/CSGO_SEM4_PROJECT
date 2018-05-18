@@ -185,22 +185,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Arnes_Repo\AccountApplication.cs" />
     <Compile Include="Arnes_Repo\IRepository.cs" />
     <Compile Include="Arnes_Repo\Reposistory.cs" />
-    <Compile Include="Arnes_Repo\SessionContext.cs" />
-    <Compile Include="Arnes_Repo\UserRepository.cs" />
     <Compile Include="Content\App_Start\BundleConfig.cs" />
     <Compile Include="Content\App_Start\FilterConfig.cs" />
-    <Compile Include="Content\App_Start\IdentityConfig.cs" />
     <Compile Include="Content\App_Start\RouteConfig.cs" />
-    <Compile Include="Content\App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BalanceController.cs" />
     <Compile Include="Controllers\BetController.cs" />
     <Compile Include="Controllers\FieldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RouletteController.cs" />
     <Compile Include="Controllers\SeedController.cs" />
     <Compile Include="Controllers\SkinController.cs" />
@@ -208,12 +201,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Balance.cs" />
     <Compile Include="Models\Bet.cs" />
     <Compile Include="Models\Field.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Roulette.cs" />
     <Compile Include="Models\Skin.cs" />
     <Compile Include="Models\SteamAccount.cs" />
@@ -1058,12 +1048,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\version.json" />
@@ -1074,6 +1058,7 @@
     <Content Include="Views\Balance\Index.cshtml" />
     <Content Include="Views\SteamAccCrud\Create.cshtml" />
     <Content Include="Views\SteamAccCrud\Login.cshtml" />
+    <Content Include="Views\SteamAccCrud\AfterLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1096,10 +1081,6 @@
     <ProjectReference Include="..\Controller\BLL.csproj">
       <Project>{0997a625-14f4-4510-8144-32b1d891cc9f}</Project>
       <Name>BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Models\Models.csproj">
-      <Project>{C87C8262-FD5D-44F1-98C3-BD1F97C1DDF4}</Project>
-      <Name>Models</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

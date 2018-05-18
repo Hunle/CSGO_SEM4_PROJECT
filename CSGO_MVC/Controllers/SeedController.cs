@@ -6,7 +6,6 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading;
-using Models;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Web.Mvc;

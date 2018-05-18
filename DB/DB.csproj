@@ -79,10 +79,6 @@
       <Project>{fc8e04c5-a31f-4ff4-b3df-8afc25584715}</Project>
       <Name>CSGO_MVC</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Models\Models.csproj">
-      <Project>{c87c8262-fd5d-44f1-98c3-bd1f97c1ddf4}</Project>
-      <Name>Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\angular-animate.js" />

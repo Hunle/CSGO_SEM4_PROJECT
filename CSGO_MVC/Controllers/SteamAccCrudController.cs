@@ -1,47 +1,60 @@
 ﻿using DB.Arnes_Repo;
 using CSGO_MVC.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Xml.Linq;
-using System.IO;
-using System.Net;
 using System.Web.Security;
-using CSGO_MVC.Arnes_Repo;
 
 namespace CSGO_MVC.Controllers
 {
-    
+
     public class SteamAccCrudController : Controller
     {
         private IRepository<SteamAccount> AccountRepo = null;
         private BalanceController bctrl = new BalanceController();
-        AccountApplication userApp = new AccountApplication();
-        SessionContext context = new SessionContext();
         private SkinController sctrl = new SkinController();
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(SteamAccount s)
+        {
+            if (ModelState.IsValid) // this is check validity
+            {
+                using (SteamAccountContext sc = new SteamAccountContext())
+                {
+                    var v = sc.Accounts.Where(a => a.UserName.Equals(s.UserName) && a.Password.Equals(s.Password)).FirstOrDefault();
+                    if (v != null)
+                    {
+                        Session["LogedId"] = v.Id.ToString();
+                        Session["LogedUserUserName"] = v.UserName.ToString();
+                        return RedirectToAction("AfterLogin");
+                    }
+                }
+            }
+            return View(s);
+        }
 
         public ActionResult Login()
         {
             return View();
         }
-        [HttpPost]
-        public ActionResult Login(SteamAccount account)
-        {
-            var authenticatedUser = userApp.GetByUsernameAndPassword(account);
-            if (authenticatedUser != null)
-            {
-                context.SetAuthenticationToken(authenticatedUser.Id.ToString(), false, authenticatedUser);
-                return RedirectToAction("Index", "Home");
-            }
 
-            return View();
+        public ActionResult AfterLogin()
+        {
+            if (Session["LogedId"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
         }
 
         public ActionResult Logout()
         {
-            FormsAuthentication.SignOut();
+            Session.Abandon();
             return RedirectToAction("Index", "Home");
         }
 
@@ -49,10 +62,11 @@ namespace CSGO_MVC.Controllers
         {
             this.AccountRepo = new Reposistory<SteamAccount>();
         }
-        public ActionResult Index()
+        public ActionResult Index(SteamAccount steamacc)
         {
-            var acc = AccountRepo.GetAll();
-            return View(acc);
+            SteamAccountContext scontext = new SteamAccountContext();
+            
+            return View();
         }
 
         public void GetAll()
