@@ -81,6 +81,7 @@ namespace CSGO_MVC.Controllers
 
             SteamAccount acc = new SteamAccount
             {
+                SteamId = Steamid,
                 UserName = GetUsernameFromId(Steamid),
                 Password = password,
                 accountbalance = accBalance,
