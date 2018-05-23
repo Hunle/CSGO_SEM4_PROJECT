@@ -52,8 +52,8 @@ namespace CSGO_MVC.Models
                 Price = 50,
                 State = "Field Tested"
             });
-            accountbalance.Amount = AccountSkins.Sum(Skin => Skin.Price);
-
+            Balance accountbalance = new Balance(AccountSkins.Sum(Skin => Skin.Price));
+            this.accountbalance = accountbalance;
         }
     }
 }
