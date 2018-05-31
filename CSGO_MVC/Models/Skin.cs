@@ -9,9 +9,9 @@ namespace CSGO_MVC.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string SkinName { get; set; }
         public int Price { get; set; }
-        public string State { get; set; }
+        public string SkinState { get; set; }
         // public int FloatValue { get; set; }  // Your condition on ze weeeapon
 
 

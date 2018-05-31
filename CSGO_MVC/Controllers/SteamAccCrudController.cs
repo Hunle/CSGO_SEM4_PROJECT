@@ -75,31 +75,34 @@ namespace CSGO_MVC.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create(string Tradelink, string password, long Steamid)
+        public ActionResult Create()
         {
-            Balance accBalance = bctrl.CreateonCreateAccount();
+            //Balance accBalance = bctrl.CreateonCreateAccount();
 
-            SteamAccount acc = new SteamAccount
-            {
-                SteamId = Steamid,
-                UserName = GetUsernameFromId(Steamid),
-                Password = password,
-                accountbalance = accBalance,
-                TradeLink = Tradelink
+            //SteamAccount acc = new SteamAccount
+            //{
+            //    SteamId = Steamid,
+            //    UserName = GetUsernameFromId(Steamid),
+            //    Password = password,
+            //    accountbalance = accBalance,
+            //    TradeLink = Tradelink
                 
-            };
-            Create(acc);
+            //};
+            
             return View();
         }
 
         [HttpPost]
         public ActionResult Create(SteamAccount acc)
         {
+            acc.UserName = GetUsernameFromId(acc.SteamId);
+            acc.TradeLink = "templink";
+            acc.UserStatus = false;
             if (ModelState.IsValid)
             {
-                Balance accountbalance = bctrl.CreateonCreateAccount();
-                acc.accountbalance = accountbalance;
-                acc.UserName = GetUsernameFromId(acc.SteamId);
+                //Balance accountbalance = bctrl.CreateonCreateAccount();
+                //acc.accountbalance = accountbalance;
+                //acc.UserName = GetUsernameFromId(acc.SteamId);
                 foreach (var item in acc.AccountSkins)
                 {
                     sctrl.CreateonCreateAccount(item);
@@ -168,9 +171,14 @@ namespace CSGO_MVC.Controllers
             string steamid2 = Steamid.ToString();
             XDocument doc = XDocument.Load("http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=8043B535FFFFA67E92D4542AD3EEDCDD&steamids=" + Uri.EscapeDataString(steamid2) + "&format=xml");
 
-            string UserNames = (string)doc.Descendants("personaname").FirstOrDefault();
 
-            return UserNames;
+            //string UserName = (string)doc.Descendants("response").DescendantNodes("players").FirstOrDefault();
+
+            string UserName = doc.Descendants("response").Single()
+    .Descendants("players").Single().Descendants("player").Single().Descendants("personaname").Single().Value.ToString();
+
+
+            return UserName;
         }
     }
 }

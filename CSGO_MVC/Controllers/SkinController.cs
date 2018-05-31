@@ -110,9 +110,9 @@ namespace CSGO_MVC.Controllers
             List<Skin> skinlist = doc.Descendants("Counter-Strike:GlobalOffensive_EcoItems").Select(d =>
                         new Skin
                             {
-                                Name = (string) d.Attribute("SkinName"),
+                                SkinName = (string) d.Attribute("SkinName"),
                                 Price = (int) d.Attribute("MarketPrice"),
-                                State = (string) d.Attribute("Quality")
+                                SkinState = (string) d.Attribute("Quality")
                             }).ToList();
             return skinlist;
         }

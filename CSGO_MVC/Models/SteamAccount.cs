@@ -15,11 +15,11 @@ namespace CSGO_MVC.Models
 
         public Balance accountbalance { get; set; }
 
-        [Required(ErrorMessage = "Please Provide Username", AllowEmptyStrings = false)]
+        //[Required(ErrorMessage = "Please Provide Username", AllowEmptyStrings = false)]
         public string UserName { get; set; }
 
-        [Required(ErrorMessage = "Please provide password", AllowEmptyStrings = false)]
-        [DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
+        //[Required(ErrorMessage = "Please provide password", AllowEmptyStrings = false)]
+        //[DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
         public string Password { get; set; }
 
         public bool UserStatus { get; set; }
@@ -36,21 +36,21 @@ namespace CSGO_MVC.Models
             //nødt til at lave mock data.
             AccountSkins.Add(new Skin
             {
-                Name = "AK47 | Neon Revolution",
+                SkinName = "AK47 | Neon Revolution",
                 Price = 100,
-                State = "Factory New"
+                SkinState = "Factory New"
             });
             AccountSkins.Add(new Skin
             {
-                Name = "AWP | Fever Dream",
+                SkinName = "AWP | Fever Dream",
                 Price = 10,
-                State = "Minimal wear"
+                SkinState = "Minimal wear"
             });
             AccountSkins.Add(new Skin
             {
-                Name = "M4A4 | Desolate Space StatTrack",
+                SkinName = "M4A4 | Desolate Space StatTrack",
                 Price = 50,
-                State = "Field Tested"
+                SkinState = "Field Tested"
             });
             Balance accountbalance = new Balance(AccountSkins.Sum(Skin => Skin.Price));
             this.accountbalance = accountbalance;
