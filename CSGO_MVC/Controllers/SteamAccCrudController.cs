@@ -96,7 +96,7 @@ namespace CSGO_MVC.Controllers
         public ActionResult Create(SteamAccount acc)
         {
             acc.UserName = GetUsernameFromId(acc.SteamId);
-            acc.TradeLink = "templink";
+            //acc.TradeLink = "templink";
             acc.UserStatus = false;
             if (ModelState.IsValid)
             {
