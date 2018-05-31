@@ -109,7 +109,7 @@ namespace CSGO_MVC.Controllers
                 }
                 AccountRepo.Insert(acc);
                 AccountRepo.Save();
-                return RedirectToAction("Index");
+                return RedirectToAction("Login");
             }
             else
             {
