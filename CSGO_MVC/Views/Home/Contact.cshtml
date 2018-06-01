@@ -64,18 +64,22 @@
     </script>
     <p>
         @Html.DisplayFor(m => m.Accounts.accountbalance.Amount)
-    </p>
-
-    @{ var B = 100; }
-
-
-    <p>
 
     </p>
 
     <p>
-        The bet value is:
+
+
+        @foreach(var x in Model.Fieldlist)
+        {
+            <button>@x.Number @x.Color</button>
+        }
+
     </p>
+
+
+
+
 
 
 
