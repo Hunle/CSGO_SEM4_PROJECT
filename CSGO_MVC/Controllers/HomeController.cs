@@ -37,6 +37,7 @@ namespace CSGO_MVC.Controllers
             {
                 vm.Fieldlist.Add(item);
             }
+
             int id = Convert.ToInt32(Session["LogedId"]);
 
             vm.Accounts = sc.GetById(id);
