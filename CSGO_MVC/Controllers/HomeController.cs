@@ -29,6 +29,15 @@ namespace CSGO_MVC.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Contact()
+        {
+            return View();
+        }
+
+
+
+        [HttpPost]
         public ActionResult Contact(Bet bet)           //Roulette
         {
             vm.ready = false;
