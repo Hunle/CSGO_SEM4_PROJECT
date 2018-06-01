@@ -16,7 +16,7 @@ namespace CSGO_MVC.Controllers
     public sealed partial class SeedController
     {
 
-        const string URL = "https://www.fourmilab.ch/cgi-bin/Hotbits.api?nbytes=50&fmt=xml&npass=1&lpass=8&pwtype=3&apikey=HB1bnGVyQmCsrTj8GYd7CDaWQX0";
+        const string URL = "https://www.fourmilab.ch/cgi-bin/Hotbits.api?nbytes=50&fmt=xml&npass=1&lpass=8&pwtype=3&apikey=&pseudo=pseudo";
         static HttpClient client = new HttpClient();
         public static int[] Numberseed { get; set; }
 
