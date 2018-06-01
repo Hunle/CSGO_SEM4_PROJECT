@@ -10,6 +10,21 @@ namespace CSGO_MVC
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+
+        public static void RegisterRoutes(RouteCollection routes)
+        {
+            
+            routes.MapRoute(
+                "HomeController",                                           // Route name
+                "CSGO_MVC/Controllers/HomeController/BetOnGame/{field, amount}",                            // URL with parameters
+                new { controller = "HomeController", action = "BetOnGame" }  // Parameter defaults
+            );
+            //routes.MapRoute(
+            //    "Default",                                              // Route name
+            //    "{controller}/{action}/{id}",                           // URL with parameters
+            //    new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
+            //);
+        }
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -17,5 +32,6 @@ namespace CSGO_MVC
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
     }
 }
