@@ -53,12 +53,12 @@ namespace CSGO_MVC.Controllers
                if( manbet.Betfield.Color == wfield.Color && manbet.Betfield.Number == wfield.Number)
                 {
                     ViewBag.Message = "YOU WON! CONGRATULATIONS!";
-                    manbet.Betmaker.accountbalance.Amount += manbet.BetValue;
+                    vm.Accounts.accountbalance.Amount += manbet.BetValue;
                 }
                 else
                 {
                     ViewBag.Message = "YOU LOST! TOO BAD";
-                    manbet.Betmaker.accountbalance.Amount -= manbet.BetValue;
+                    vm.Accounts.accountbalance.Amount -= manbet.BetValue;
                 }
             }
        
