@@ -59,7 +59,11 @@
         function myFunction(button) {
             var x = button.value;
             document.getElementById("demo").innerHTML = x;
+        }
 
+        function ncFunc(button) {
+            var z = button.value;
+            document.getElementById("demo").innerHTML += z;
         }
     </script>
     <p>
@@ -67,16 +71,16 @@
 
     </p>
 
-    <p>
-
-
+    <!--
         @foreach(var x in Model.Fieldlist)
         {
-            <button>@x.Number @x.Color</button>
+          <button type="button" id="RouField" onclick="myFunction(this)" value="@x.Number @x.Color">@x.Number @x.Color</button>
         }
-
-    </p>
-
+        -->
+    @foreach (var x in Model.Fieldlist)
+    {
+        <input type="button" id"numCol" onclick="ncFunc(this)" value="@x.Color @x.Number" />
+    }
 
 
 
