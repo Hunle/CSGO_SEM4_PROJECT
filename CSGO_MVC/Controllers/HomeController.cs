@@ -60,6 +60,7 @@ namespace CSGO_MVC.Controllers
                     ViewBag.Message = "YOU LOST! TOO BAD";
                     vm.Accounts.accountbalance.Amount -= manbet.BetValue;
                 }
+                ready = false;
             }
        
            return View(vm);
