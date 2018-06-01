@@ -13,6 +13,7 @@ namespace CSGO_MVC.Models
      //   public Balance Balance { get; set; }
         public Balance Balance { get; set; }
         public List<Field> Fieldlist = new List<Field>();
+        public bool ready;
     }
  
 }

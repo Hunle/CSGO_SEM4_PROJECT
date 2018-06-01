@@ -29,10 +29,10 @@ namespace CSGO_MVC.Controllers
             return View();
         }
 
-        public ActionResult Contact()           //Roulette
+        public ActionResult Contact(Bet bet)           //Roulette
         {
-            bool ready = false;
-            Bet manbet = new Bet(0);
+            vm.ready = false;
+            vm.Bets = bet;
             Field betfield = new Field();
             Field wfield = new Field();
             double amount = 0;
@@ -46,21 +46,21 @@ namespace CSGO_MVC.Controllers
             int id = Convert.ToInt32(Session["LogedId"]);
             vm.Accounts = sc.GetById(id);
 
-            if (ready)
+            if (vm.ready)
             {
-               manbet = BetOnGame(betfield, amount);
-               wfield = getGame(manbet);
-               if( manbet.Betfield.Color == wfield.Color && manbet.Betfield.Number == wfield.Number)
+               vm.Bets = BetOnGame(betfield, amount);
+               wfield = getGame(vm.Bets);
+               if( vm.Bets.Betfield.Color == wfield.Color && vm.Bets.Betfield.Number == wfield.Number)
                 {
                     ViewBag.Message = "YOU WON! CONGRATULATIONS!";
-                    vm.Accounts.accountbalance.Amount += manbet.BetValue;
+                    vm.Accounts.accountbalance.Amount += vm.Bets.BetValue;
                 }
                 else
                 {
                     ViewBag.Message = "YOU LOST! TOO BAD";
-                    vm.Accounts.accountbalance.Amount -= manbet.BetValue;
+                    vm.Accounts.accountbalance.Amount -= vm.Bets.BetValue;
                 }
-                ready = false;
+                vm.ready = false;
             }
        
            return View(vm);
