@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using CSGO_MVC.Models;
+using DB.Arnes_Repo;
 
 namespace CSGO_MVC.Controllers 
 
 {
     public class RouletteController : Controller
     {
-
-        private static RouletteController Instance;
-        static List<Field> Fieldlist = new List<Field>();
+               
+        public List<Field> Fieldlist = new List<Field>();
         private FieldController fctrl = new FieldController();
         private SeedController sctrl = new SeedController();
         private Random random;
@@ -28,6 +28,8 @@ namespace CSGO_MVC.Controllers
 
         public RouletteController()
         {
+            
+
             var list = fctrl.GetAll();
             foreach (var item in list)
             {
@@ -45,14 +47,7 @@ namespace CSGO_MVC.Controllers
             }, null, startTimeSpan, periodTimeSpan);
         }
 
-        public static RouletteController GetInstance()
-        {
-            if(Instance == null)
-            {
-                Instance = new RouletteController();
-            }
-            return Instance;
-        }
+
 
         public int getRandomSeed()
         {

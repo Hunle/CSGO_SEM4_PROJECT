@@ -19,8 +19,8 @@ namespace CSGO_MVC.Controllers
         }
         public ActionResult Index()
         {
-            var acc = FieldRepo.GetAll();
-            return View(acc);
+            var field = FieldRepo.GetAll();
+            return View(field);
         }
 
         public IEnumerable<Field> GetAll()

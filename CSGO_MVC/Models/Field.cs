@@ -15,10 +15,9 @@ namespace CSGO_MVC.Models
 
         public int Number { get; set; }
 
-        public Field(string colores, int numero)
+        public Field()
         {
-            this.Color = colores;
-            this.Number = numero;
+           
         }
 
 

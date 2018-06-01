@@ -14,7 +14,11 @@ namespace CSGO_MVC.Models
         }
 
         public DbSet<SteamAccount> Accounts { get; set; }
-
         public System.Data.Entity.DbSet<CSGO_MVC.Models.Balance> Balances { get; set; }
+        public DbSet<Field> Fields { get; set; }
+
+        public DbSet<Skin> Skins { get; set; }
+        public DbSet<Bet> Bets { get; set; }
+        
     }
 }

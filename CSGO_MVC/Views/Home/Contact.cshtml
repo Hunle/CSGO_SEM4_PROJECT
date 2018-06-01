@@ -35,7 +35,10 @@
 
     <h1> Roulette test</h1>
     <hr />
-
+    @foreach (var item in Model.Fieldlist)
+    {
+        <p>@Html.DisplayFor(m => item)</p>
+    }
 
     <h1> Bet Test</h1>
 
@@ -64,14 +67,14 @@
     </p>
 
     @{ var B = 100; }
-    
- 
+
+
     <p>
-        
+
     </p>
 
     <p>
-        The bet value is: 
+        The bet value is:
     </p>
 
 

@@ -12,6 +12,7 @@ namespace CSGO_MVC.Controllers
     {
         private IRepository<Balance> BalRepo = new Reposistory<Balance>();
         private SteamAccCrudController sc = new SteamAccCrudController();
+        private RouletteController rc = new RouletteController();
 
         public ActionResult Index()     // Home 
         {
@@ -28,7 +29,14 @@ namespace CSGO_MVC.Controllers
         public ActionResult Contact()           //Roulette
         {
 
+           
             _ViewModel vm = new _ViewModel();
+
+
+            foreach (var item in rc.Fieldlist)
+            {
+                vm.Fieldlist.Add(item);
+            }
             int id = Convert.ToInt32(Session["LogedId"]);
 
             vm.Accounts = sc.GetById(id);
