@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CSGO_MVC.Models;
+using DB.Arnes_Repo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,8 @@ namespace CSGO_MVC.Controllers
 {
     public class HomeController : Controller
     {
+        private IRepository<Balance> BalRepo = null;
+
         public ActionResult Index()     // Home 
         {
             return View();
@@ -20,11 +24,16 @@ namespace CSGO_MVC.Controllers
             return View();
         }
 
-        public ActionResult Contact()           //Roulette
+        public ActionResult Contact(int id)           //Roulette
         {
             ViewBag.Message = "Your contact page.";
 
-            return View();
+            
+                ViewBag.Wallet = BalRepo.GetById(id);
+
+                return View();
+ 
+          
         }
     }
 }
