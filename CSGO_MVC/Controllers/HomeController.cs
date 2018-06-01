@@ -33,10 +33,10 @@ namespace CSGO_MVC.Controllers
             _ViewModel vm = new _ViewModel();
 
 
-            foreach (var item in rc.Fieldlist)
-            {
-                vm.Fieldlist.Add(item);
-            }
+     //       foreach (var item in rc.Fieldlist)
+      //      {
+     //           vm.Fieldlist.Add(item);
+      //      }
 
             int id = Convert.ToInt32(Session["LogedId"]);
 
@@ -44,6 +44,17 @@ namespace CSGO_MVC.Controllers
 
             return View(vm);
 
+        }
+        public ActionResult FieldList()
+        {
+            _ViewModel vm = new _ViewModel();
+
+            foreach (var item in rc.Fieldlist)
+            {
+                vm.Fieldlist.Add(item);
+            }
+
+            return View(vm);
         }
     }
 }
