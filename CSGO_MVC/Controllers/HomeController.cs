@@ -50,9 +50,13 @@ namespace CSGO_MVC.Controllers
             Field betfield = new Field();
             Field wfield = new Field();
             double amount = 0;
+            int id = Convert.ToInt32(Session["LogedId"]);
+            vm.Accounts = sc.GetById(id);
 
-
-        
+            //if (vm.Bets.Betfield != null && vm.Bets.BetValue != 0)
+            //{
+            //    vm.ready = true;
+            //}
 
             int id = Convert.ToInt32(Session["LogedId"]);
             vm.Accounts = sc.GetById(id);
