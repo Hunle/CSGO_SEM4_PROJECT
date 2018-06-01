@@ -80,7 +80,28 @@
 
 
 
+        <script>
+            function RouletteBet(){
+            var betvar = {bet:"", field:"",};
+            betvar.bet = document.getElementById("bv").value;
+            betvar.field = document.getElementById("rf").value;
 
+            var t = table.insertRow(2);
+
+            var b = row.insertCell(0);
+            var r = row.insertCell(1);
+
+            b.innerHTML = betvar.bet;
+            r.innerHTML = betvar.field;
+            }
+        </script>
+
+        <form>
+            <input type="text" id="bv" name="bet Value:" />
+            <input type="text" id="rf" name="Roulette Field:" />
+
+            <input type="submit" id="readyup" onclick="" value="Bet!" />
+        </form>
 
 
     <!--
@@ -118,6 +139,12 @@
     </p>
     -->
     <input type="submit" id="readyup" onclick="" value="Bet!" />
- 
+
+
+
+  
+
+
+
 </body>
 </html>
