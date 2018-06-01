@@ -1,6 +1,6 @@
 ﻿<!doctype html>
 <html lang="en">
-@model CSGO_MVC.Models.Bet
+@model CSGO_MVC.Models._ViewModel
 
 @{
     ViewBag.Title = "title";
@@ -59,15 +59,15 @@
 
         }
     </script>
-
-
-
+    <p>
+        @Html.DisplayFor(m => m.Balance.Amount)
+    </p>
 
     @{ var B = 100; }
     
  
     <p>
-        @
+        
     </p>
 
     <p>

@@ -8,29 +8,16 @@ using System.Web.Mvc;
 
 namespace CSGO_MVC.Controllers
 {
-    public class HomeController : Controller
+    public class ViewModelController : Controller
     {
         private IRepository<Balance> BalRepo = null;
-
-        public ActionResult Index()     // Home 
-        {
-            return View();
-        }
-
-        public ActionResult About()             // Shop 
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()           //Roulette
+        // GET: ViewModel
+        public ActionResult GetBalance()
         {
             _ViewModel vm = new _ViewModel();
             vm.Balance = BalRepo.GetAll();
 
             return View(vm);
-
         }
     }
 }

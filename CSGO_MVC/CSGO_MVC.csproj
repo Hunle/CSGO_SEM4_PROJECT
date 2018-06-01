@@ -198,6 +198,7 @@
     <Compile Include="Controllers\SeedController.cs" />
     <Compile Include="Controllers\SkinController.cs" />
     <Compile Include="Controllers\SteamAccCrudController.cs" />
+    <Compile Include="Controllers\ViewModelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -208,6 +209,7 @@
     <Compile Include="Models\Skin.cs" />
     <Compile Include="Models\SteamAccount.cs" />
     <Compile Include="Arnes_Repo\SteamAccountContext.cs" />
+    <Compile Include="Models\_ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -1063,6 +1065,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_Start\" />
+    <Folder Include="Views\ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
