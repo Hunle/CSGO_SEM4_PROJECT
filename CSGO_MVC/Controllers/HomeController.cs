@@ -31,18 +31,42 @@ namespace CSGO_MVC.Controllers
 
         public ActionResult Contact()           //Roulette
         {
+            bool ready = false;
+            Bet manbet = new Bet(0);
+            Field betfield = new Field();
+            Field wfield = new Field();
+            double amount = 0;
+
+
             foreach (var item in rc.Fieldlist)
             {
                 vm.Fieldlist.Add(item);
             }
-           
-            int id = Convert.ToInt32(Session["LogedId"]);                    
-            vm.Accounts = sc.GetById(id);
-            return View(vm);
 
+            int id = Convert.ToInt32(Session["LogedId"]);
+            vm.Accounts = sc.GetById(id);
+
+            if (ready)
+            {
+               manbet = BetOnGame(betfield, amount);
+               wfield = getGame(manbet);
+               if( manbet.Betfield.Color == wfield.Color && manbet.Betfield.Number == wfield.Number)
+                {
+                    ViewBag.Message = "YOU WON! CONGRATULATIONS!";
+                    manbet.Betmaker.accountbalance.Amount += manbet.BetValue;
+                }
+                else
+                {
+                    ViewBag.Message = "YOU LOST! TOO BAD";
+                    manbet.Betmaker.accountbalance.Amount -= manbet.BetValue;
+                }
+            }
+       
+           return View(vm);
         }
 
-        public void BetOnGame(Field field, double amount)
+        
+        public Bet BetOnGame(Field field, double amount)
         {
             Bet bet = new Bet(amount);
             bet.Betfield = field;
@@ -51,20 +75,16 @@ namespace CSGO_MVC.Controllers
             bet.Date = DateTime.Now;
             bet.Status = false;
             bc.Create(bet);
-
-            getGame(bet);
+            return bet;
+            
         }
 
-
+        
         public Field getGame(Bet bet)
         {
             Field wfield = new Field();
             wfield = rc.RouletteGame(bet);
-
-            if (wfield.Color == bet.Betfield.Color && wfield.Number == bet.Betfield.Number)
-            {
-                bet.Status = true;
-            }
+            
             return wfield;
 
         }
