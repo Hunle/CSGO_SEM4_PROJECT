@@ -31,6 +31,7 @@ namespace CSGO_MVC.Controllers
             var balances = BalRepo.GetAll();
             return balances;
         }
+    
 
         [HttpGet]
         public Balance CreateonCreateAccount()
@@ -96,6 +97,13 @@ namespace CSGO_MVC.Controllers
             BalRepo.Delete(Id);
             BalRepo.Save();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult TestTest(int id)
+        {
+            ViewBag.Wallet = BalRepo.GetById(id);
+
+            return View(); 
         }
     }
 }

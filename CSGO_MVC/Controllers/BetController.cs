@@ -78,6 +78,7 @@ namespace CSGO_MVC.Controllers
         public ActionResult Details(int Id)
         {
             var bet = BetRepo.GetById(Id);
+            ViewBag.BetVal = BetRepo.GetById(Id);
             return View(bet);
         }
         public ActionResult Delete(int Id)

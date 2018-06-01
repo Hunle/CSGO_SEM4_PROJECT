@@ -23,6 +23,9 @@ namespace CSGO_MVC.Models
         public Bet(double Betvalue)
         {
             BetValue = 100.00;
+
         }
+
+   
     }
 }
