@@ -14,6 +14,7 @@ namespace CSGO_MVC.Controllers
         private SteamAccCrudController sc = new SteamAccCrudController();
         private RouletteController rc = new RouletteController();
         private FieldController fc = new FieldController();
+        private BetController bc = new BetController();
         _ViewModel vm = new _ViewModel();
 
         public ActionResult Index()     // Home 
@@ -30,29 +31,40 @@ namespace CSGO_MVC.Controllers
 
         public ActionResult Contact()           //Roulette
         {
-
-           
-           
-
-
             foreach (var item in rc.Fieldlist)
             {
                 vm.Fieldlist.Add(item);
             }
-            SelectList slist = new SelectList(vm.Fieldlist);
-            ViewBag.DropDownList = slist;
-            int id = Convert.ToInt32(Session["LogedId"]);
-                    
+           
+            int id = Convert.ToInt32(Session["LogedId"]);                    
             vm.Accounts = sc.GetById(id);
-
             return View(vm);
 
         }
+
+        public void BetOnGame(Field field, double amount)
+        {
+            Bet bet = new Bet(amount);
+            bet.Betfield = field;
+            int id = Convert.ToInt32(Session["LogedId"]);
+            bet.Betmaker = sc.GetById(id);
+            bet.Date = DateTime.Now;
+            bet.Status = false;
+            bc.Create(bet);
+
+            getGame(bet);
+        }
+
 
         public Field getGame(Bet bet)
         {
             Field wfield = new Field();
             wfield = rc.RouletteGame(bet);
+
+            if (wfield.Color == bet.Betfield.Color && wfield.Number == bet.Betfield.Number)
+            {
+                bet.Status = true;
+            }
             return wfield;
 
         }
