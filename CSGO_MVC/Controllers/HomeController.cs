@@ -11,6 +11,7 @@ namespace CSGO_MVC.Controllers
     public class HomeController : Controller
     {
         private IRepository<Balance> BalRepo = new Reposistory<Balance>();
+        private SteamAccCrudController sc = new SteamAccCrudController();
 
         public ActionResult Index()     // Home 
         {
@@ -26,8 +27,11 @@ namespace CSGO_MVC.Controllers
 
         public ActionResult Contact()           //Roulette
         {
+
             _ViewModel vm = new _ViewModel();
-            vm.Balance = BalRepo.GetById(1);
+            int id = Convert.ToInt32(Session["LogedId"]);
+
+            vm.Accounts = sc.GetById(id);
 
             return View(vm);
 
