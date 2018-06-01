@@ -13,6 +13,8 @@ namespace CSGO_MVC.Controllers
         private IRepository<Balance> BalRepo = new Reposistory<Balance>();
         private SteamAccCrudController sc = new SteamAccCrudController();
         private RouletteController rc = new RouletteController();
+        private FieldController fc = new FieldController();
+        _ViewModel vm = new _ViewModel();
 
         public ActionResult Index()     // Home 
         {
@@ -30,18 +32,28 @@ namespace CSGO_MVC.Controllers
         {
 
            
-            _ViewModel vm = new _ViewModel();
+           
 
 
             foreach (var item in rc.Fieldlist)
             {
                 vm.Fieldlist.Add(item);
             }
+            SelectList slist = new SelectList(vm.Fieldlist);
+            ViewBag.DropDownList = slist;
             int id = Convert.ToInt32(Session["LogedId"]);
-
+                    
             vm.Accounts = sc.GetById(id);
 
             return View(vm);
+
+        }
+
+        public Field getGame(Bet bet)
+        {
+            Field wfield = new Field();
+            wfield = rc.RouletteGame(bet);
+            return wfield;
 
         }
     }
