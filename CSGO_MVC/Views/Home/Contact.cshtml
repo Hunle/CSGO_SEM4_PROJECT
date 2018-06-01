@@ -35,10 +35,7 @@
 
     <h1> Roulette test</h1>
     <hr />
-    @foreach (var item in Model.Fieldlist)
-    {
-        <p>@Html.DisplayFor(m => item)</p>
-    }
+  
 
     <h1> Bet Test</h1>
 
@@ -71,9 +68,9 @@
     </p>
 
     <!--
-        @foreach(var x in Model.Fieldlist)
-        {
-          <button type="button" id="RouField" onclick="myFunction(this)" value="@x.Number @x.Color">@x.Number @x.Color</button>
+        //foreach(var x in Model.Fieldlist)
+    //{
+         // <button type="button" id="RouField" onclick="myFunction(this)" value="x.Number x.Color">x.Number x.Color</button>
         }
         -->
     @foreach (var x in Model.Fieldlist)

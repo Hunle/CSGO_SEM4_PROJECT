@@ -15,7 +15,7 @@ namespace CSGO_MVC.Controllers
         private RouletteController rc = new RouletteController();
         private FieldController fc = new FieldController();
         private BetController bc = new BetController();
-        _ViewModel vm = new _ViewModel();
+     
 
         public ActionResult Index()     // Home 
         {
@@ -29,28 +29,30 @@ namespace CSGO_MVC.Controllers
             return View();
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult Contact()
         {
+                      
             return View();
         }
 
 
 
-        [HttpPost]
-        public ActionResult Contact(Bet bet)           //Roulette
+        [HttpGet]
+        public ActionResult Contact(_ViewModel vm)           //Roulette
         {
+            foreach (var item in rc.Fieldlist)
+            {
+                vm.Fieldlist.Add(item);
+            }
             vm.ready = false;
-            vm.Bets = bet;
+            vm.Bets = new Bet(0);
             Field betfield = new Field();
             Field wfield = new Field();
             double amount = 0;
 
 
-            foreach (var item in rc.Fieldlist)
-            {
-                vm.Fieldlist.Add(item);
-            }
+        
 
             int id = Convert.ToInt32(Session["LogedId"]);
             vm.Accounts = sc.GetById(id);
