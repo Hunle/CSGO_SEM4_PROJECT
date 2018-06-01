@@ -11,7 +11,7 @@ namespace CSGO_MVC.Models
         public Bet Bets { get; set; }
         public SteamAccount Accounts { get; set; }
      //   public Balance Balance { get; set; }
-        public IEnumerable<Balance> Balance { get; set; }
+        public Balance Balance { get; set; }
     }
  
 }

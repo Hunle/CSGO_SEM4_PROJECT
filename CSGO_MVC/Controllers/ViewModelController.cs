@@ -15,7 +15,7 @@ namespace CSGO_MVC.Controllers
         public ActionResult GetBalance()
         {
             _ViewModel vm = new _ViewModel();
-            vm.Balance = BalRepo.GetAll();
+            //vm.Balance = BalRepo.GetAll();
 
             return View(vm);
         }

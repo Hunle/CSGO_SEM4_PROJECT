@@ -16,7 +16,9 @@ namespace CSGO_MVC.Models
         {
             this.Amount = amount;
         }
-
+        public Balance()
+        {
+        }
 
     }
 }
