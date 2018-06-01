@@ -30,6 +30,11 @@ namespace CSGO_MVC.Controllers
                         Session["LogedUserUserName"] = v.UserName.ToString();
                         return RedirectToAction("AfterLogin");
                     }
+                    else
+                    {
+                        throw new Exception("No users match the given credentials");
+                        
+                    }
                 }
             }
             return View(s);
@@ -164,6 +169,7 @@ namespace CSGO_MVC.Controllers
             AccountRepo.Save();
             return RedirectToAction("Index");
         }
+
 
         public string GetUsernameFromId(long Steamid)
         {
