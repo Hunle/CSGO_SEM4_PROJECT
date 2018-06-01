@@ -25,7 +25,10 @@ namespace CSGO_MVC.Models
             BetValue = 100.00;
 
         }
+        public Bet()
+        {
 
+        }
    
     }
 }
