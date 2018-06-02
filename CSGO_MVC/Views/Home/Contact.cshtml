@@ -73,26 +73,44 @@
          // <button type="button" id="RouField" onclick="myFunction(this)" value="x.Number x.Color">x.Number x.Color</button>
         }
         -->
-    @foreach (var x in Model.Fieldlist)
+    @*@foreach (var x in Model.Fieldlist)
+        {
+            <input type="button" id"numCol" onclick="ncFunc(this)" value="@x.Color @x.Number" />
+        }*@
+
+
+    @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
     {
-        <input type="button" id"numCol" onclick="ncFunc(this)" value="@x.Color @x.Number" />
+    <div>
+        <label>color</label>
+        @Html.TextBoxFor(Model => Model.Bets.Betfield.Color)
+        <label>number</label>
+        @Html.TextBoxFor(Model => Model.Bets.Betfield.Number)
+        <label>value</label>
+        @Html.TextBoxFor(Model => Model.Bets.BetValue)        
+    </div>
+        <div class="btn btn-success">
+            <input type="submit" value="Edit RSVP" />
+        </div>
     }
 
 
 
-        <script>
-            function RouletteBet(){
-            var betvar = {bet:"", field:"",};
-            betvar.bet = document.getElementById("bv").value;
-            betvar.field = document.getElementById("rf").value;
 
-            var t = table.insertRow(2);
 
-            var b = row.insertCell(0);
-            var r = row.insertCell(1);
+    @*<script>
+            function RouletteBet() {
+                var betvar = { bet: "", field: "", };
+                betvar.bet = document.getElementById("bv").value;
+                betvar.field = document.getElementById("rf").value;
 
-            b.innerHTML = betvar.bet;
-            r.innerHTML = betvar.field;
+                var t = table.insertRow(2);
+
+                var b = row.insertCell(0);
+                var r = row.insertCell(1);
+
+                b.innerHTML = betvar.bet;
+                r.innerHTML = betvar.field;
             }
         </script>
 
@@ -102,7 +120,7 @@
             <input type="text" id="rf" name="Roulette Field:" />
 
             <input type="submit" id="readyup" onclick="BetStart" value="Bet!" />
-        </form>
+        </form>*@
 
     <script>
         function BetStart() {
@@ -151,7 +169,7 @@
 
 
 
-  
+
 
 
 

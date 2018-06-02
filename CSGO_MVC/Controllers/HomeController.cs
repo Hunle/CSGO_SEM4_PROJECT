@@ -15,7 +15,7 @@ namespace CSGO_MVC.Controllers
         private RouletteController rc = new RouletteController();
         private FieldController fc = new FieldController();
         private BetController bc = new BetController();
-        private _ViewModel vm;
+        private _ViewModel vm = new _ViewModel();
      
 
         public ActionResult Index()     // Home 
@@ -30,7 +30,7 @@ namespace CSGO_MVC.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult Contact()
         {                
             return View();
@@ -38,25 +38,27 @@ namespace CSGO_MVC.Controllers
 
 
 
-        [HttpGet]
-        public ActionResult Contact(Bet bet)           //Roulette
+        [HttpPost]
+        public ActionResult Contact(_ViewModel vm2)           //Roulette
         {
-            _ViewModel vm = new _ViewModel();
+            vm.Bets = vm2.Bets;
+            Field betfield = new Field();
+            //betfield.Color = color;
+            //betfield.Number = Convert.ToInt32(number);
+            vm.Bets.Betfield = betfield;
             foreach (var item in rc.Fieldlist)
             {
                 vm.Fieldlist.Add(item);
-            }            
-            vm.Bets = bet;
-            Field betfield = new Field();
+            }                       
             Field wfield = new Field();
             double amount = 0;
             int id = Convert.ToInt32(Session["LogedId"]);
             vm.Accounts = sc.GetById(id);
 
-            //if (vm.Bets.Betfield != null && vm.Bets.BetValue != 0)
-            //{
-            //    vm.ready = true;
-            //}        
+            if (vm.Bets.Betfield != null && vm.Bets.BetValue != 0)
+            {
+                vm.ready = true;
+            }        
 
             if (vm.ready)
             {
@@ -87,7 +89,7 @@ namespace CSGO_MVC.Controllers
             bet.Betmaker = sc.GetById(id);
             bet.Date = DateTime.Now;
             bet.Status = false;
-            bc.Create(bet);
+            //bc.Create(bet);
             return bet;
             
         }
