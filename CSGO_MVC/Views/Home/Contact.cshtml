@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <h1> Spin Thy Wheel</h1>
+    <h1 style="color:White"> Spin Thy Wheel</h1>
     <div class="RouletteWheel">
         <a href="#"><img src="~/Content/Images/WheelRouuuuu.jpg" /></a>
     </div>
@@ -33,141 +33,152 @@
 
 
 
-    <h1> Roulette test</h1>
+    <h1 style="color:white;"> Play the game, if you dare! Not many survives!</h1>
     <hr />
 
 
-    <h1> Bet Test</h1>
+    <h1 style="color:white;"> Make your bet! Choose wisely, Mortal!</h1>
 
 
 
-    <p id="demo"> </p>
+    <p id="demo" style="color:white;"> </p>
 
     <br />
 
-    <input type="button" id="b1" onclick="myFunction(this)" value='50'>
-    <input type="button" id="b1" onclick="myFunction(this)" value='100'>
-    <input type="button" id="b1" onclick="myFunction(this)" value='150'>
-    <input type="button" id="b1" onclick="myFunction(this)" value='200'>
-    <input type="button" id="b1" onclick="myFunction(this)" value='250'>
-    <input type="button" id="b1" onclick="myFunction(this)" value='500'>
-
-    <script>
-        function myFunction(button) {
-            var x = button.value;
-            document.getElementById("demo").innerHTML = x;
-        }
-
-        function ncFunc(button) {
-            var z = button.value;
-            document.getElementById("demo").innerHTML += z;
-        }
-    </script>
-    <p>
-        @Html.DisplayFor(m => m.Accounts.accountbalance.Amount)
-    </p>
-
-    <!--
-        //foreach(var x in Model.Fieldlist)
-    //{
-         // <button type="button" id="RouField" onclick="myFunction(this)" value="x.Number x.Color">x.Number x.Color</button>
-        }
-        -->
-    @*@foreach (var x in Model.Fieldlist)
-        {
-            <input type="button" id"numCol" onclick="ncFunc(this)" value="@x.Color @x.Number" />
-        }*@
-
+    
 
     @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
     {
     <div>
-        <label>color</label>
+        <label style="color:white">color</label>
         @Html.TextBoxFor(Model => Model.Bets.Betfield.Color)
-        <label>number</label>
+        <label style="color:white">number</label>
         @Html.TextBoxFor(Model => Model.Bets.Betfield.Number)
-        <label>value</label>
-        @Html.TextBoxFor(Model => Model.Bets.BetValue)        
+        <label style="color:white">value</label>
+        @Html.TextBoxFor(Model => Model.Bets.BetValue, new { id = "value4" })
+
+        @*<input type="button" id="b1" onclick="myFunction(this)" value='50'>
+        <input type="button" id="b1" onclick="myFunction(this)" value='100'>
+        <input type="button" id="b1" onclick="myFunction(this)" value='150'>
+        <input type="button" id="b1" onclick="myFunction(this)" value='200'>         <----- no workerino yet
+        <input type="button" id="b1" onclick="myFunction(this)" value='250'>
+        <input type="button" id="b1" onclick="myFunction(this)" value='500'>
+        <script>
+            function myFunction(button) {
+                var x = button.value;
+                document.getElementById("value4").innerHTML = x;
+            }
+        </script>*@
     </div>
         <div class="btn btn-success">
-            <input type="submit" value="Edit RSVP" />
+            <input type="submit" value="Roll the Roulette!" />
         </div>
     }
 
+    <h1 style="color:white;">
+        This is your current balance! Gamble wisely, or you will soon find yourself poor! </h1">
+        <h2 style="color:white;">
+            @Html.DisplayFor(m => m.Accounts.accountbalance.Amount) Shekels
+        </h2>
+
+        <!--
+            //foreach(var x in Model.Fieldlist)
+        //{
+             // <button type="button" id="RouField" onclick="myFunction(this)" value="x.Number x.Color">x.Number x.Color</button>
+            }
+            -->
+        @*@foreach (var x in Model.Fieldlist)
+            {
+                <input type="button" id"numCol" onclick="ncFunc(this)" value="@x.Color @x.Number" />
+            }*@
 
 
 
 
-    @*<script>
-            function RouletteBet() {
-                var betvar = { bet: "", field: "", };
-                betvar.bet = document.getElementById("bv").value;
-                betvar.field = document.getElementById("rf").value;
 
-                var t = table.insertRow(2);
 
-                var b = row.insertCell(0);
-                var r = row.insertCell(1);
 
-                b.innerHTML = betvar.bet;
-                r.innerHTML = betvar.field;
+
+        @*<script>
+                function RouletteBet() {
+                    var betvar = { bet: "", field: "", };
+                    betvar.bet = document.getElementById("bv").value;
+                    betvar.field = document.getElementById("rf").value;
+
+                    var t = table.insertRow(2);
+
+                    var b = row.insertCell(0);
+                    var r = row.insertCell(1);
+
+                    b.innerHTML = betvar.bet;
+                    r.innerHTML = betvar.field;
+                }
+            </script>
+
+            <form>
+                <input type="text" id="bv" name="bet Value:" />
+                <br />
+                <input type="text" id="rf" name="Roulette Field:" />
+
+                <input type="submit" id="readyup" onclick="BetStart" value="Bet!" />
+            </form>*@
+
+        <script>
+            function BetStart() {
+                get.bet;
+                get.field;
+
+                alert(bet, field);
             }
         </script>
 
-        <form>
-            <input type="text" id="bv" name="bet Value:" />
-            <br />
-            <input type="text" id="rf" name="Roulette Field:" />
+        <!--
+         Hvis Script ikke virker tag det her
+        @{
 
-            <input type="submit" id="readyup" onclick="BetStart" value="Bet!" />
-        </form>*@
+            var BetV = 500;
 
-    <script>
-        function BetStart() {
-            get.bet;
-            get.field;
+            <input class="btnBetValue" type="button" value="@(BetV)" onclick="document.getElementById('totalBet').innerHTML=this.value">
 
-            alert(bet, field);
+
+
+            <p>BetValue: @(BetV)</p>
+
+            var TotalBetValue = BetV = +BetV;
+            <textarea id="totalBet" disabled> </textarea>
+
         }
-    </script>
 
-    <!--
-     Hvis Script ikke virker tag det her
-    @{
+        <p>Total Value:@(TotalBetValue)</p>
 
-        var BetV = 500;
+            -->
+        <!--
+            <p>
+                Number : @ViewBag.ViewBagName
+                @Html.ViewBag.ViewBagName
+                @ViewBag.TEST
+                Numver2:
 
-        <input class="btnBetValue" type="button" value="@(BetV)" onclick="document.getElementById('totalBet').innerHTML=this.value">
 
+                snabelausing CSGO_MVC.Controllers;
+                snabelaRouletteController.RouletteGame;
+                snabelaHtml.TextBoxFor(x => x.RouletteGame.ViewBag);
 
-
-        <p>BetValue: @(BetV)</p>
-
-        var TotalBetValue = BetV = +BetV;
-        <textarea id="totalBet" disabled> </textarea>
-
-    }
-
-    <p>Total Value:@(TotalBetValue)</p>
-
+        </p>
         -->
-    <!--
-        <p>
-            Number : @ViewBag.ViewBagName
-            @Html.ViewBag.ViewBagName
-            @ViewBag.TEST
-            Numver2:
 
 
-            snabelausing CSGO_MVC.Controllers;
-            snabelaRouletteController.RouletteGame;
-            snabelaHtml.TextBoxFor(x => x.RouletteGame.ViewBag);
+        <script>
+            function myFunction(button) {
+                var x = button.value;
+                document.getElementById("value4").innerHTML = x;
+            }
 
-    </p>
-    -->
-    <input type="submit" id="readyup" onclick="" value="Bet!" />
-
-
+            function ncFunc(button) {
+                var z = button.value;
+                document.getElementById("demo").innerHTML += z;
+            }
+        </script>
 
 
 

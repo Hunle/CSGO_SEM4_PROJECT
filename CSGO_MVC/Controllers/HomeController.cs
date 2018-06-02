@@ -15,8 +15,10 @@ namespace CSGO_MVC.Controllers
         private RouletteController rc = new RouletteController();
         private FieldController fc = new FieldController();
         private BetController bc = new BetController();
-        private _ViewModel vm = new _ViewModel();
+        public _ViewModel vm = new _ViewModel();
      
+
+        
 
         public ActionResult Index()     // Home 
         {
@@ -32,8 +34,16 @@ namespace CSGO_MVC.Controllers
 
         [HttpGet]
         public ActionResult Contact()
-        {                
-            return View();
+        {
+
+            vm.Fieldlists = new List<Field>();
+            foreach (var item in rc.Fieldlist)
+            {
+                vm.Fieldlists.Add(item);
+            }
+            int id = Convert.ToInt32(Session["LogedId"]);
+            vm.Accounts = sc.GetById(id);
+            return View(vm);
         }
 
 
@@ -41,15 +51,21 @@ namespace CSGO_MVC.Controllers
         [HttpPost]
         public ActionResult Contact(_ViewModel vm2)           //Roulette
         {
+
+            //vm.Fieldlist = new List<Field>();
+            //foreach (var item in rc.Fieldlist)
+            //{
+            //    vm.Fieldlist.Add(item);
+            //}
             vm.Bets = vm2.Bets;
             Field betfield = new Field();
             //betfield.Color = color;
             //betfield.Number = Convert.ToInt32(number);
             vm.Bets.Betfield = betfield;
-            foreach (var item in rc.Fieldlist)
-            {
-                vm.Fieldlist.Add(item);
-            }                       
+            //foreach (var item in rc.Fieldlist)
+            //{
+            //    vm.Fieldlists.Add(item);
+            //}                       
             Field wfield = new Field();
             double amount = 0;
             int id = Convert.ToInt32(Session["LogedId"]);
@@ -67,12 +83,12 @@ namespace CSGO_MVC.Controllers
                if( vm.Bets.Betfield.Color == wfield.Color && vm.Bets.Betfield.Number == wfield.Number)
                 {
                     ViewBag.Message = "YOU WON! CONGRATULATIONS!";
-                    vm.Accounts.accountbalance.Amount += vm.Bets.BetValue;
+                    
                 }
                 else
                 {
                     ViewBag.Message = "YOU LOST! TOO BAD";
-                    vm.Accounts.accountbalance.Amount -= vm.Bets.BetValue;
+                   
                 }
                 vm.ready = false;
             }

@@ -12,7 +12,7 @@ namespace CSGO_MVC.Models
         public SteamAccount Accounts { get; set; }
      //   public Balance Balance { get; set; }
         public Balance Balance { get; set; }
-        public List<Field> Fieldlist = new List<Field>();
+        public List<Field> Fieldlists;
         public bool ready;
     }
  

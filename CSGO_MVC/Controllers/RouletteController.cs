@@ -27,9 +27,7 @@ namespace CSGO_MVC.Controllers
 
 
         public RouletteController()
-        {
-            
-
+        {           
             var list = fctrl.GetAll();
             foreach (var item in list)
             {
