@@ -14,6 +14,7 @@ namespace CSGO_MVC.Models
         public Balance Balance { get; set; }
         public List<Field> Fieldlists;
         public bool ready;
+        public Field wField { get; set; }
     }
  
 }

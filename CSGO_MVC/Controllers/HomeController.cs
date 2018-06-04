@@ -80,7 +80,8 @@ namespace CSGO_MVC.Controllers
             {
                vm.Bets = BetOnGame(betfield, amount);
                wfield = getGame(vm.Bets);
-               if( vm.Bets.Betfield.Color == wfield.Color && vm.Bets.Betfield.Number == wfield.Number)
+                if (vm.Bets.Betfield.Color == wfield.Color && vm.Bets.Betfield.Number == wfield.Number)
+                    vm.wField = wfield;
                 {
                     ViewBag.Message = "YOU WON! CONGRATULATIONS!";
                     

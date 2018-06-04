@@ -78,7 +78,7 @@
     <h1 style="color:white;">
         This is your current balance! Gamble wisely, or you will soon find yourself poor! </h1">
         <h2 style="color:white;">
-            @Html.DisplayFor(m => m.Accounts.accountbalance.Amount) Shekels
+            @Html.DisplayFor(m => m.Accounts.accountbalance.Amount) Balance
         </h2>
 
         <!--
@@ -92,7 +92,10 @@
                 <input type="button" id"numCol" onclick="ncFunc(this)" value="@x.Color @x.Number" />
             }*@
 
-
+        <h1 style="color:white;">The winning field is;
+            @Html.DisplayFor(m => m.wField.Color)
+            @Html.DisplayFor(m => m.wField.Number)         
+        </h1>
 
 
 
